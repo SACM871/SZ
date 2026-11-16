@@ -304,9 +304,9 @@ class MainActivity : Activity() {
         titles.addView(tv(t("app_sub"), 12f, cGray))
         top.addView(titles, LinearLayout.LayoutParams(0, -2, 1f))
 
-        top.addView(iconButton(R.drawable.ic_search, Color.WHITE, t("cd_search")) { setMode(SEARCH) },
+        top.addView(iconButton(R.drawable.ic_search, Color.WHITE, t("cd_search")) { changeMode(SEARCH) },
             LinearLayout.LayoutParams(dp(40), dp(40)).apply { marginStart = dp(6) })
-        top.addView(iconButton(R.drawable.ic_settings, Color.WHITE, t("cd_settings")) { setMode(TOOLS) },
+        top.addView(iconButton(R.drawable.ic_settings, Color.WHITE, t("cd_settings")) { changeMode(TOOLS) },
             LinearLayout.LayoutParams(dp(40), dp(40)).apply { marginStart = dp(6) })
         top.addView(iconButton(if (dark) R.drawable.ic_light else R.drawable.ic_dark,
             Color.WHITE, t(if (dark) "cd_light" else "cd_dark")) { toggleDark() },
@@ -323,7 +323,7 @@ class MainActivity : Activity() {
                 textSize = 12f
                 gravity = Gravity.CENTER
                 setPadding(dp(14), dp(7), dp(14), dp(7))
-                setOnClickListener { setMode(i) }
+                setOnClickListener { changeMode(i) }
             }
             chips.add(c)
             chipRow.addView(c, LinearLayout.LayoutParams(-2, -2).apply { marginEnd = dp(8) })
@@ -443,7 +443,7 @@ class MainActivity : Activity() {
                 setPadding(dp(4), dp(4), dp(4), dp(4))
                 contentDescription = t(secKeys[m])
                 foreground = getDrawable(android.R.attr.selectableItemBackgroundBorderless)
-                setOnClickListener { setMode(m) }
+                setOnClickListener { changeMode(m) }
             }
             val iv = ImageView(this).apply {
                 setImageResource(secIcons[m])
@@ -593,7 +593,7 @@ class MainActivity : Activity() {
     }
 
     // ================= العرض =================
-    private fun setMode(m: Int) {
+    private fun changeMode(m: Int) {
         mode = m
         render()
     }
@@ -1046,8 +1046,8 @@ class MainActivity : Activity() {
             4 -> switchLang()
             5 -> { sortMode = (sortMode + 1) % 3; render() }
             6 -> confirmApplyAll()
-            7 -> setMode(DUPS)
-            8 -> setMode(ACCS)
+            7 -> changeMode(DUPS)
+            8 -> changeMode(ACCS)
             9 -> dlg().setTitle(t("tool_about")).setMessage(t("about2"))
                 .setPositiveButton(t("close"), null).display()
             10 -> { selMode = true; sel.clear(); render() }
@@ -1080,9 +1080,9 @@ class MainActivity : Activity() {
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         if (selMode) { exitSel(); render() }
-        else if (mode != FILES && mode != HOME) setMode(FILES)
+        else if (mode != FILES && mode != HOME) changeMode(FILES)
         else if (mode == FILES && stack.size > 1) { stack.removeAt(stack.size - 1); render() }
-        else if (mode == FILES) setMode(HOME)
+        else if (mode == FILES) changeMode(HOME)
         else super.onBackPressed()
     }
 
