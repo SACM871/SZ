@@ -762,8 +762,7 @@ class MainActivity : Activity() {
         if (a.sug.isNotEmpty()) {
             rows.add(Row(
                 t("reclaim_alert"),
-                fmtSize(a.sugSize) + " • " + t("reclaim_sub") + "
-" + t("cleanup_sub", num(a.sug.size)),
+                fmtSize(a.sugSize) + " • " + t("reclaim_sub") + "\n" + t("cleanup_sub", num(a.sug.size)),
                 "🗑️", cRose, type = 5, act = 7, tag = t("review_clean")
             ))
         }
