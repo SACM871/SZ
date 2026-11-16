@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-primary-fixed-variant': '#3f465c', 'on-primary-container': '#7c839b', 'on-tertiary-fixed-variant': '#005236', 'on-surface-variant': '#94A3B8', 'error': '#ba1a1a', 'tertiary': '#000000', 'secondary-container': '#316bf3', 'on-secondary-container': '#fefcff', 'surface-container-high': '#1e293b', 'on-primary': '#ffffff', 'tertiary-fixed': '#6ffbbe', 'secondary-fixed-dim': '#b4c5ff', 'inverse-surface': '#213145', 'surface-variant': '#1e293b', 'surface-container': '#162033', 'primary-fixed-dim': '#bec6e0', 'on-secondary-fixed-variant': '#003ea8', 'inverse-on-surface': '#eaf1ff', 'outline': '#76777d', 'surface-bright': '#1e293b', 'on-surface': '#F1F5F9', 'primary': '#000000', 'on-secondary-fixed': '#00174b', 'on-error-container': '#93000a', 'inverse-primary': '#bec6e0', 'surface-dim': '#0B1220', 'on-background': '#F1F5F9', 'tertiary-fixed-dim': '#4edea3', 'surface-container-low': '#111927', 'on-secondary': '#ffffff', 'primary-container': '#131b2e', 'on-error': '#ffffff', 'error-container': '#ffdad6', 'primary-fixed': '#dae2fd', 'secondary': '#0051d5', 'on-tertiary': '#ffffff', 'secondary-fixed': '#dbe1ff', 'surface': '#0B1220', 'tertiary-container': '#002113', 'on-primary-fixed': '#131b2e', 'background': '#0B1220', 'outline-variant': '#334155', 'on-tertiary-container': '#009668', 'surface-tint': '#565e74', 'surface-container-highest': '#1e293b', 'surface-container-lowest': '#0B1220', 'on-tertiary-fixed': '#002113' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'gutter-sm': '0.5rem', 'margin': '1rem', 'gutter': '0.75rem', 'space-xs': '0.25rem', 'space-sm': '0.5rem', 'space-lg': '1rem', 'space-xl': '1.5rem', 'space-md': '0.75rem', 'margin-compact': '0.75rem' }, fontFamily: { 'body-md': ['Inter', 'system-ui', 'sans-serif'], 'headline-md': ['Inter', 'system-ui', 'sans-serif'], 'title-md': ['Inter', 'system-ui', 'sans-serif'], 'headline-sm': ['Inter', 'system-ui', 'sans-serif'], 'body-lg': ['Inter', 'system-ui', 'sans-serif'], 'display-lg': ['Inter', 'system-ui', 'sans-serif'], 'body-sm': ['Inter', 'system-ui', 'sans-serif'], 'numeric-stat': ['Inter', 'sans-serif'], 'headline-lg': ['Inter', 'system-ui', 'sans-serif'], 'label-lg': ['Inter', 'system-ui', 'sans-serif'], 'label-md': ['Inter', 'system-ui', 'sans-serif'] }, fontSize: { 'body-md': ['14px', { 'lineHeight': '20px', 'fontWeight': '400' }], 'headline-md': ['20px', { 'lineHeight': '28px', 'fontWeight': '600' }], 'title-md': ['14px', { 'lineHeight': '20px', 'fontWeight': '600' }], 'headline-sm': ['16px', { 'lineHeight': '24px', 'fontWeight': '600' }], 'body-lg': ['16px', { 'lineHeight': '24px', 'fontWeight': '400' }], 'display-lg': ['32px', { 'lineHeight': '40px', 'letterSpacing': '-0.02em', 'fontWeight': '700' }], 'body-sm': ['12px', { 'lineHeight': '16px', 'fontWeight': '400' }], 'numeric-stat': ['22px', { 'lineHeight': '28px', 'letterSpacing': '-0.01em', 'fontWeight': '700' }], 'headline-lg': ['24px', { 'lineHeight': '32px', 'letterSpacing': '-0.01em', 'fontWeight': '600' }], 'label-lg': ['13px', { 'lineHeight': '18px', 'fontWeight': '500' }], 'label-md': ['11px', { 'lineHeight': '16px', 'letterSpacing': '0.02em', 'fontWeight': '500' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+      background-color: #0B1220;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-[#0B1220] text-[#F1F5F9] antialiased"><header class="fixed top-0 w-full z-50 pt-safe bg-[#0B1220]/95 backdrop-blur-md border-b border-[#1E293B] shadow-[0_4px_20px_rgba(0,0,0,0.4)]"><div class="h-28 flex flex-col justify-between"><div class="flex items-center justify-between px-margin pt-2"><div class="flex items-center gap-space-sm min-w-0"><img alt="ZipStats Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrAKVXBPwMt605Edb6wD1xLs1PgBaD94Vlwm_5DNTcIMy1X5ZCqSaszTjR77Moep9DWpcVe8A6iV6DkCLHS2gaVT3lBPps8bu2m9rpbELcQ17X_K4l7VvULQaM70fQ5Gkvk2zt8ups_QgWWC0vsiczqo8dlq1m09eVjHIwYN77Asf2tSEo0auC_4a7QEyMBbuwxtipeGSyWsnEjU3nB72VaYMxzxmaLFMag28QDV7WPm"/><div class="flex flex-col truncate"><span class="font-headline-md text-headline-sm text-[#F1F5F9] font-bold leading-tight truncate">ZipStats</span><span class="font-body-sm text-body-sm text-[#94A3B8] leading-none truncate">Accounts &amp; Files Manager</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="Toggle Theme" class="h-8 w-8 rounded-full bg-[#162033] border border-[#1E293B] text-amber-400 flex items-center justify-center hover:bg-[#1E293B] active:scale-95 transition-all"><span class="material-symbols-outlined text-[18px]">light_mode</span></button><button aria-label="Toggle Language" class="h-8 px-2.5 rounded-full bg-[#162033] border border-[#1E293B] text-[#94A3B8] hover:text-[#F1F5F9] font-label-md text-label-md flex items-center justify-center hover:bg-[#1E293B] active:scale-95 transition-all">EN / عربي</button><button aria-label="Open File" class="h-8 w-8 rounded-full bg-[#162033] border border-[#1E293B] text-[#94A3B8] hover:text-[#F1F5F9] flex items-center justify-center hover:bg-[#1E293B] active:scale-95 transition-all"><span class="material-symbols-outlined text-[18px]">drive_folder_upload</span></button><div class="w-8 h-8 rounded-full bg-emerald-600/30 border border-emerald-500/40 flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-emerald-400 text-[18px]">person</span></div></div></div><div class="overflow-x-auto no-scrollbar flex items-center gap-space-xs px-margin pb-2"><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="dashboard" href="#"><span class="w-2 h-2 rounded-full bg-[#2563EB]"></span><span>Home</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="files-explorer" href="#"><span class="w-2 h-2 rounded-full bg-[#0EA5E9]"></span><span>Files</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-white bg-emerald-600 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all shadow-[0_0_12px_rgba(16,185,129,0.35)]" data-path="accounts-vault" href="#"><span class="w-2 h-2 rounded-full bg-white animate-pulse"></span><span>Accounts</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="duplicate-finder" href="#"><span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span><span>Duplicates</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="storage-cleanup" href="#"><span class="w-2 h-2 rounded-full bg-[#F97316]"></span><span>Cleanup</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="file-comparator" href="#"><span class="w-2 h-2 rounded-full bg-[#14B8A6]"></span><span>Compare</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="statistics-overview" href="#"><span class="w-2 h-2 rounded-full bg-[#8B5CF6]"></span><span>Statistics</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="favorite-items" href="#"><span class="w-2 h-2 rounded-full bg-[#EC4899]"></span><span>Favorites</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="advanced-search" href="#"><span class="w-2 h-2 rounded-full bg-[#06B6D4]"></span><span>Search</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="utility-tools" href="#"><span class="w-2 h-2 rounded-full bg-[#475569]"></span><span>Tools</span></a></div></div></header><main class="flex flex-col relative w-full pt-28 pb-20 bg-[#0B1220] min-h-screen"><div class="flex flex-col w-full bg-[#0B1220] text-[#F1F5F9] px-margin pb-24 space-y-space-md" dir="rtl">
+<!-- Breadcrumb Path Banner -->
+<div class="flex items-center justify-between bg-[#162033] rounded-xl p-space-md shadow-sm">
+<div class="flex items-center gap-space-sm overflow-hidden min-w-0">
+<button class="h-8 w-8 rounded-full bg-[#0B1220] flex items-center justify-center text-[#94A3B8] hover:text-[#F1F5F9] flex-shrink-0 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<div class="flex items-center gap-1 overflow-x-auto no-scrollbar font-body-sm text-[13px] text-[#94A3B8] whitespace-nowrap">
+<span>Root</span>
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
+<span>archive_backup_2025_02.zip</span>
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
+<span>Enterprise Storage</span>
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
+<span class="text-[#0EA5E9] font-medium">SAMA SA 04</span>
+</div>
+</div>
+</div>
+<!-- Persistent Warning Banner -->
+<div class="flex items-center gap-space-sm bg-rose-500/10 text-rose-400 rounded-xl p-space-md">
+<span class="material-symbols-outlined text-[20px] flex-shrink-0">warning</span>
+<span class="font-body-sm text-[13px] leading-tight">وضع الملفات الحقيقية — العمليات تؤثر على ملفاتك الفعلية</span>
+</div>
+<!-- Clipboard / Paste Action Bar (Active State) -->
+<div class="flex items-center justify-between bg-emerald-600/20 text-emerald-300 rounded-xl px-space-md py-3 shadow-[0_0_15px_rgba(16,185,129,0.15)] animate-pulse">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px]">content_paste</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-sm">الحافظة نشطة (3 عناصر)</span>
+<span class="font-body-sm text-[11px] opacity-80">نسخ / نقل إلى المسار الحالي</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-3 py-1.5 bg-emerald-600 text-white rounded-full font-label-md text-label-md active:scale-95 transition-all">لصق هنا</button>
+<button class="p-1 rounded-full hover:bg-emerald-600/20 text-emerald-300">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Controls: Select Multiple & Sorting -->
+<div class="flex items-center justify-between gap-space-sm">
+<button class="flex items-center gap-1.5 px-3 py-2 bg-[#162033] rounded-xl font-label-md text-[#94A3B8] hover:text-[#F1F5F9] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">checklist</span>
+<span>تحديد متعدد</span>
+</button>
+<div class="flex items-center gap-1 bg-[#162033] rounded-xl p-1 font-label-md text-[#94A3B8]">
+<button class="px-2.5 py-1 rounded-lg bg-[#0B1220] text-[#F1F5F9] shadow-sm">الاسم</button>
+<button class="px-2.5 py-1 rounded-lg hover:text-[#F1F5F9]">الحجم</button>
+<button class="px-2.5 py-1 rounded-lg hover:text-[#F1F5F9]">العدد</button>
+</div>
+</div>
+<!-- Rich List of Folder & File Cards -->
+<div class="flex flex-col space-y-space-sm">
+<!-- Folder 1: SAMA SA 04 -->
+<div class="group relative bg-[#162033] rounded-xl p-space-md flex flex-col space-y-3 hover:brightness-110 transition-all shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">folder</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[#F1F5F9] truncate">SAMA SA 04</span>
+<span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-label-md text-[11px]">مكتمل (Full)</span>
+</div>
+<span class="font-body-sm text-[#94A3B8] text-[12px]">54,120 files • 1,840 dirs</span>
+</div>
+</div>
+<button class="text-[#94A3B8] hover:text-[#F1F5F9] p-1 rounded-full">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<!-- Storage and Progress -->
+<div class="flex flex-col space-y-1.5 pt-1">
+<div class="flex justify-between items-center text-body-sm">
+<span class="text-[#94A3B8]">الحجم الإجمالي</span>
+<span class="font-numeric-stat text-[13px] text-[#F1F5F9]">24.6 TB (58.8%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-[#0B1220] overflow-hidden">
+<div class="h-full bg-cyan-500 rounded-full" style="width: 58.8%;"></div>
+</div>
+</div>
+<!-- Largest File Sub-item -->
+<div class="flex items-center justify-between pt-2 border-t border-[#0B1220]/50 text-body-sm">
+<div class="flex items-center gap-1.5 text-[#94A3B8] truncate">
+<span class="material-symbols-outlined text-[16px] text-amber-400">database</span>
+<span class="truncate">largest: backup_prod_2024.sql.gz</span>
+</div>
+<span class="font-numeric-stat text-[12px] text-[#F1F5F9] flex-shrink-0">184 GB</span>
+</div>
+</div>
+<!-- Folder 2: SAMASA28 -->
+<div class="group relative bg-[#162033] rounded-xl p-space-md flex flex-col space-y-3 hover:brightness-110 transition-all shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center text-rose-400 flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">folder_special</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[#F1F5F9] truncate">SAMASA28</span>
+<span class="px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-400 font-label-md text-[11px]">مؤقت (Temp)</span>
+</div>
+<span class="font-body-sm text-[#94A3B8] text-[12px]">18,420 files • 940 dirs</span>
+</div>
+</div>
+<button class="text-[#94A3B8] hover:text-[#F1F5F9] p-1 rounded-full">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<!-- Storage and Progress -->
+<div class="flex flex-col space-y-1.5 pt-1">
+<div class="flex justify-between items-center text-body-sm">
+<span class="text-[#94A3B8]">الحجم الإجمالي</span>
+<span class="font-numeric-stat text-[13px] text-[#F1F5F9]">9.8 TB (23.4%)</span>
+</div>
+<div class="w-full h-2 rounded-full bg-[#0B1220] overflow-hidden">
+<div class="h-full bg-rose-500 rounded-full" style="width: 23.4%;"></div>
+</div>
+</div>
+</div>
+<!-- File Card 3: Archive .tar.gz -->
+<div class="group relative bg-[#162033] rounded-xl p-space-md flex items-center justify-between hover:brightness-110 transition-all shadow-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400 flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">archive</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[#F1F5F9] truncate">audit_logs_Q4.tar.gz</span>
+<span class="font-body-sm text-[#94A3B8] text-[12px]">15 Oct 2025 • TAR Archive</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm flex-shrink-0">
+<span class="font-numeric-stat text-[14px] text-[#F1F5F9]">42.5 GB</span>
+<button class="text-[#94A3B8] hover:text-[#F1F5F9] p-1 rounded-full">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- File Card 4: Video .mp4 -->
+<div class="group relative bg-[#162033] rounded-xl p-space-md flex items-center justify-between hover:brightness-110 transition-all shadow-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400 flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">movie</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[#F1F5F9] truncate">server_migration_demo.mp4</span>
+<span class="font-body-sm text-[#94A3B8] text-[12px]">02 Nov 2025 • MPEG-4 Video</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm flex-shrink-0">
+<span class="font-numeric-stat text-[14px] text-[#F1F5F9]">4.2 GB</span>
+<button class="text-[#94A3B8] hover:text-[#F1F5F9] p-1 rounded-full">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- File Card 5: JSON Config -->
+<div class="group relative bg-[#162033] rounded-xl p-space-md flex items-center justify-between hover:brightness-110 transition-all shadow-sm">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">code</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-[#F1F5F9] truncate">cluster_config_prod.json</span>
+<span class="font-body-sm text-[#94A3B8] text-[12px]">12 Jan 2025 • JSON Document</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm flex-shrink-0">
+<span class="font-numeric-stat text-[14px] text-[#F1F5F9]">1.4 MB</span>
+<button class="text-[#94A3B8] hover:text-[#F1F5F9] p-1 rounded-full">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Action Menu Preview Bottom Sheet (Static state preview layout) -->
+<div class="bg-[#162033] rounded-2xl p-space-lg shadow-2xl space-y-3 mt-4">
+<div class="flex items-center justify-between pb-2 border-b border-[#0B1220]">
+<span class="font-headline-sm text-[#F1F5F9]">خيارات العنصر (SAMA SA 04)</span>
+<span class="material-symbols-outlined text-[#94A3B8] cursor-pointer">close</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="flex items-center gap-2 p-2.5 rounded-xl bg-[#0B1220] hover:bg-cyan-500/10 text-[#F1F5F9] text-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px] text-cyan-400">info</span>
+<span>التفاصيل</span>
+</button>
+<button class="flex items-center gap-2 p-2.5 rounded-xl bg-[#0B1220] hover:bg-cyan-500/10 text-[#F1F5F9] text-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px] text-cyan-400">edit</span>
+<span>إعادة تسمية</span>
+</button>
+<button class="flex items-center gap-2 p-2.5 rounded-xl bg-[#0B1220] hover:bg-cyan-500/10 text-[#F1F5F9] text-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px] text-cyan-400">content_copy</span>
+<span>نسخ</span>
+</button>
+<button class="flex items-center gap-2 p-2.5 rounded-xl bg-[#0B1220] hover:bg-cyan-500/10 text-[#F1F5F9] text-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px] text-cyan-400">drive_file_move</span>
+<span>نقل</span>
+</button>
+<button class="flex items-center gap-2 p-2.5 rounded-xl bg-[#0B1220] hover:bg-cyan-500/10 text-[#F1F5F9] text-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px] text-pink-400">favorite</span>
+<span>المفضلة</span>
+</button>
+<button class="flex items-center gap-2 p-2.5 rounded-xl bg-[#0B1220] hover:bg-rose-500/10 text-rose-400 text-sm active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+<span>حذف</span>
+</button>
+</div>
+</div>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-[#0B1220]/90 backdrop-blur-xl border-t border-[#1E293B] shadow-[0_-4px_20px_rgba(0,0,0,0.4)]" data-active-classes="text-[#10B981]"><div class="h-16 px-gutter flex items-center justify-around"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#94A3B8] hover:text-[#F1F5F9] transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-md text-label-md mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#94A3B8] hover:text-[#F1F5F9] transition-colors" data-path="files-explorer" href="#"><span class="material-symbols-outlined text-[22px]">folder</span><span class="font-label-md text-label-md mt-0.5">Files</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#94A3B8] hover:text-[#F1F5F9] transition-colors" data-path="accounts-vault" href="#"><span class="material-symbols-outlined text-[22px]">badge</span><span class="font-label-md text-label-md mt-0.5">Accounts</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#94A3B8] hover:text-[#F1F5F9] transition-colors" data-path="duplicate-finder" href="#"><span class="material-symbols-outlined text-[22px]">copy_all</span><span class="font-label-md text-label-md mt-0.5">Duplicates</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#94A3B8] hover:text-[#F1F5F9] transition-colors" data-path="storage-cleanup" href="#"><span class="material-symbols-outlined text-[22px]">cleaning_services</span><span class="font-label-md text-label-md mt-0.5">Clean</span></a></div></nav></body></html>

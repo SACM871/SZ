@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-primary-fixed-variant': '#3f465c', 'on-primary-container': '#7c839b', 'on-tertiary-fixed-variant': '#005236', 'on-surface-variant': '#45464d', 'error': '#ba1a1a', 'tertiary': '#000000', 'secondary-container': '#316bf3', 'on-secondary-container': '#fefcff', 'surface-container-high': '#dce9ff', 'on-primary': '#ffffff', 'tertiary-fixed': '#6ffbbe', 'secondary-fixed-dim': '#b4c5ff', 'inverse-surface': '#213145', 'surface-variant': '#d3e4fe', 'surface-container': '#e5eeff', 'primary-fixed-dim': '#bec6e0', 'on-secondary-fixed-variant': '#003ea8', 'inverse-on-surface': '#eaf1ff', 'outline': '#76777d', 'surface-bright': '#f8f9ff', 'on-surface': '#0b1c30', 'primary': '#000000', 'on-secondary-fixed': '#00174b', 'on-error-container': '#93000a', 'inverse-primary': '#bec6e0', 'surface-dim': '#cbdbf5', 'on-background': '#0b1c30', 'tertiary-fixed-dim': '#4edea3', 'surface-container-low': '#eff4ff', 'on-secondary': '#ffffff', 'primary-container': '#131b2e', 'on-error': '#ffffff', 'error-container': '#ffdad6', 'primary-fixed': '#dae2fd', 'secondary': '#0051d5', 'on-tertiary': '#ffffff', 'secondary-fixed': '#dbe1ff', 'surface': '#f8f9ff', 'tertiary-container': '#002113', 'on-primary-fixed': '#131b2e', 'background': '#f8f9ff', 'outline-variant': '#c6c6cd', 'on-tertiary-container': '#009668', 'surface-tint': '#565e74', 'surface-container-highest': '#d3e4fe', 'surface-container-lowest': '#ffffff', 'on-tertiary-fixed': '#002113' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'gutter-sm': '0.5rem', 'margin': '1rem', 'gutter': '0.75rem', 'space-xs': '0.25rem', 'space-sm': '0.5rem', 'space-lg': '1rem', 'space-xl': '1.5rem', 'space-md': '0.75rem', 'margin-compact': '0.75rem' }, fontFamily: { 'body-md': ['Inter'], 'headline-md': ['Inter'], 'title-md': ['Inter'], 'headline-sm': ['Inter'], 'body-lg': ['Inter'], 'display-lg': ['Inter'], 'body-sm': ['Inter'], 'numeric-stat': ['Inter'], 'headline-lg': ['Inter'], 'label-lg': ['Inter'], 'label-md': ['Inter'] }, fontSize: { 'body-md': ['14px', { 'lineHeight': '20px', 'fontWeight': '400' }], 'headline-md': ['20px', { 'lineHeight': '28px', 'fontWeight': '600' }], 'title-md': ['14px', { 'lineHeight': '20px', 'fontWeight': '600' }], 'headline-sm': ['16px', { 'lineHeight': '24px', 'fontWeight': '600' }], 'body-lg': ['16px', { 'lineHeight': '24px', 'fontWeight': '400' }], 'display-lg': ['32px', { 'lineHeight': '40px', 'letterSpacing': '-0.02em', 'fontWeight': '700' }], 'body-sm': ['12px', { 'lineHeight': '16px', 'fontWeight': '400' }], 'numeric-stat': ['22px', { 'lineHeight': '28px', 'letterSpacing': '-0.01em', 'fontWeight': '700' }], 'headline-lg': ['24px', { 'lineHeight': '32px', 'letterSpacing': '-0.01em', 'fontWeight': '600' }], 'label-lg': ['13px', { 'lineHeight': '18px', 'fontWeight': '500' }], 'label-md': ['11px', { 'lineHeight': '16px', 'letterSpacing': '0.02em', 'fontWeight': '500' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface antialiased"><header class="fixed top-0 w-full z-50 pt-safe bg-[#0F172A] shadow-[0_4px_12px_rgba(15,23,42,0.18)]"><div class="h-28 flex flex-col justify-between"><div class="flex items-center justify-between px-margin pt-2"><div class="flex items-center gap-space-sm min-w-0"><img alt="ZipStats Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrAKVXBPwMt605Edb6wD1xLs1PgBaD94Vlwm_5DNTcIMy1X5ZCqSaszTjR77Moep9DWpcVe8A6iV6DkCLHS2gaVT3lBPps8bu2m9rpbELcQ17X_K4l7VvULQaM70fQ5Gkvk2zt8ups_QgWWC0vsiczqo8dlq1m09eVjHIwYN77Asf2tSEo0auC_4a7QEyMBbuwxtipeGSyWsnEjU3nB72VaYMxzxmaLFMag28QDV7WPm"/><div class="flex flex-col truncate"><span class="font-headline-md text-headline-sm text-white font-bold leading-tight truncate">ZipStats</span><span class="font-body-sm text-body-sm text-slate-400 leading-none truncate">Accounts &amp; Files Manager</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="Toggle Theme" class="h-8 w-8 rounded-full bg-slate-800 text-slate-200 flex items-center justify-center hover:bg-slate-700 active:scale-95 transition-all"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button><button aria-label="Toggle Language" class="h-8 px-2 rounded-full bg-slate-800 text-slate-200 font-label-md text-label-md flex items-center justify-center hover:bg-slate-700 active:scale-95 transition-all">EN / عربي</button><button aria-label="Open File" class="h-8 w-8 rounded-full bg-slate-800 text-slate-200 flex items-center justify-center hover:bg-slate-700 active:scale-95 transition-all"><span class="material-symbols-outlined text-[18px]">drive_folder_upload</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="overflow-x-auto no-scrollbar flex items-center gap-space-xs px-margin pb-2" data-active-classes="bg-emerald-600 text-white font-medium"><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-slate-300 bg-slate-800/80 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="dashboard" href="#"><span class="w-2 h-2 rounded-full bg-[#2563EB]"></span><span>Home</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-slate-300 bg-slate-800/80 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="files-explorer" href="#"><span class="w-2 h-2 rounded-full bg-[#0EA5E9]"></span><span>Files</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-slate-300 bg-slate-800/80 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="accounts-vault" href="#"><span class="w-2 h-2 rounded-full bg-[#10B981]"></span><span>Accounts</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-slate-300 bg-slate-800/80 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="duplicate-finder" href="#"><span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span><span>Duplicates</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-slate-300 bg-slate-800/80 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="storage-cleanup" href="#"><span class="w-2 h-2 rounded-full bg-[#F97316]"></span><span>Cleanup</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-slate-300 bg-slate-800/80 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="file-comparator" href="#"><span class="w-2 h-2 rounded-full bg-[#14B8A6]"></span><span>Compare</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-slate-300 bg-slate-800/80 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="statistics-overview" href="#"><span class="w-2 h-2 rounded-full bg-[#8B5CF6]"></span><span>Statistics</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-slate-300 bg-slate-800/80 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="favorite-items" href="#"><span class="w-2 h-2 rounded-full bg-[#EC4899]"></span><span>Favorites</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-slate-300 bg-slate-800/80 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="advanced-search" href="#"><span class="w-2 h-2 rounded-full bg-[#06B6D4]"></span><span>Search</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-slate-300 bg-slate-800/80 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="utility-tools" href="#"><span class="w-2 h-2 rounded-full bg-[#475569]"></span><span>Tools</span></a></div></div></header><main class="flex flex-col relative w-full pt-28 pb-20 bg-surface min-h-screen"><div class="flex flex-col w-full px-margin pb-space-xl space-y-space-lg select-none">
+<!-- Section Header Banner -->
+<div class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#10B981] via-[#059669] to-[#047857] p-space-lg text-white shadow-md">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-white/10 blur-xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-white font-label-md text-label-md font-semibold tracking-wide">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+          14 Accounts Total • 41.8 TB Managed
+        </span>
+<button aria-label="Account telemetry info" class="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center hover:bg-white/25 active:scale-95 transition-all text-white" type="button">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</button>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-white tracking-tight pt-1">Accounts Vault</h1>
+<p class="font-body-sm text-body-sm text-emerald-50 opacity-95">Allocation, capacity telemetry, and account consolidation</p>
+</div>
+</div>
+<!-- Summary Overview Card -->
+<div class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col space-y-space-md">
+<div class="grid grid-cols-3 gap-space-sm text-center">
+<!-- Full Accounts -->
+<div class="flex flex-col items-center p-2 rounded-xl bg-surface-container-low/70">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">8 Full</span>
+</div>
+<span class="font-numeric-stat text-numeric-stat text-on-surface mt-0.5">24.6<span class="text-xs font-normal text-on-surface-variant ml-0.5">TB</span></span>
+</div>
+<!-- Temporary Accounts -->
+<div class="flex flex-col items-center p-2 rounded-xl bg-surface-container-low/70">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#F43F5E]"></span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">4 Temp</span>
+</div>
+<span class="font-numeric-stat text-numeric-stat text-on-surface mt-0.5">14.2<span class="text-xs font-normal text-on-surface-variant ml-0.5">TB</span></span>
+</div>
+<!-- Unclassified Accounts -->
+<div class="flex flex-col items-center p-2 rounded-xl bg-surface-container-low/70">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#64748B]"></span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">2 Unclass</span>
+</div>
+<span class="font-numeric-stat text-numeric-stat text-on-surface mt-0.5">3.0<span class="text-xs font-normal text-on-surface-variant ml-0.5">TB</span></span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1 text-on-surface-variant">
+<span class="font-body-sm text-body-sm flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[16px] text-[#10B981]">dns</span>
+        Total 87,987 files mapped across active registered credentials
+      </span>
+</div>
+</div>
+<!-- Merge Accounts Action Banner -->
+<div class="rounded-2xl bg-emerald-50/80 p-space-lg shadow-sm flex items-center justify-between gap-space-md">
+<div class="flex items-start gap-3 min-w-0">
+<div class="w-11 h-11 rounded-2xl bg-[#10B981]/15 text-[#059669] flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">call_merge</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Merge Accounts</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 line-clamp-2">Consolidate duplicate accounts, migrate structures, and auto-deduplicate storage footprints.</p>
+</div>
+</div>
+<button class="shrink-0 h-10 px-4 rounded-full bg-[#10B981] hover:bg-[#059669] active:scale-95 text-white font-label-lg text-label-lg font-semibold flex items-center gap-1.5 shadow-sm transition-all" onclick="document.getElementById('merge-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[18px]">merge_type</span>
+<span>Merge</span>
+</button>
+</div>
+<!-- Filter & Sort Row -->
+<div class="flex items-center justify-between gap-space-sm pt-1">
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+<button class="px-3.5 py-1.5 rounded-full bg-[#10B981] text-white font-label-md text-label-md font-semibold shrink-0 shadow-xs flex items-center gap-1">
+<span>All</span>
+<span class="bg-white/20 px-1.5 py-0.2 rounded-full text-[10px]">14</span>
+</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium shrink-0 shadow-xs flex items-center gap-1">
+<span>Full</span>
+<span class="text-on-surface-variant/70 text-[10px]">8</span>
+</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium shrink-0 shadow-xs flex items-center gap-1">
+<span>Temp</span>
+<span class="text-on-surface-variant/70 text-[10px]">4</span>
+</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium shrink-0 shadow-xs flex items-center gap-1">
+<span>Unclass</span>
+<span class="text-on-surface-variant/70 text-[10px]">2</span>
+</button>
+</div>
+<button class="shrink-0 flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-xs active:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">swap_vert</span>
+<span class="whitespace-nowrap">Size ↓</span>
+</button>
+</div>
+<!-- Account Cards Stack -->
+<div class="flex flex-col space-y-space-md">
+<!-- Card 1: Full Account -->
+<div class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col space-y-space-md transition-all">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-full bg-emerald-50 text-[#059669] flex items-center justify-center font-bold text-base shrink-0">
+<span class="material-symbols-outlined text-[20px]">corporate_fare</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">SAMA Corporate Primary</span>
+<span class="w-2 h-2 rounded-full bg-[#10B981] shrink-0" title="Active"></span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">SAMA SA 04</span>
+</div>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-[#10B981]/15 text-[#059669] font-label-md text-label-md font-semibold uppercase tracking-wider shrink-0">
+          Full
+        </span>
+</div>
+<!-- Telemetry metric bar -->
+<div class="flex flex-col space-y-1.5 pt-0.5">
+<div class="flex justify-between items-center text-on-surface font-body-sm text-body-sm">
+<span class="font-medium">54,120 files • 1,840 dirs</span>
+<span class="font-numeric-stat text-numeric-stat text-on-surface">24.6 <span class="text-xs font-normal text-on-surface-variant">TB (58.8%)</span></span>
+</div>
+<div class="w-full h-2 rounded-full bg-[#10B981]/15 overflow-hidden">
+<div class="h-full rounded-full bg-[#10B981]" style="width: 58.8%;"></div>
+</div>
+</div>
+<!-- Key Details Grid -->
+<div class="grid grid-cols-2 gap-space-xs text-left">
+<div class="p-2 rounded-xl bg-surface-container-low/60 flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Largest File</span>
+<span class="font-title-md text-title-md text-on-surface truncate mt-0.5" title="backup_prod_2024.sql.gz">backup_prod_2024.sql.gz</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">184 GB</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low/60 flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Largest Folder</span>
+<span class="font-title-md text-title-md text-on-surface truncate mt-0.5" title="/archives/customer_vaults/">/archives/customer_vaults/</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">14.2 TB</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low/60 flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Redundant Copies</span>
+<span class="font-title-md text-title-md text-amber-700 truncate mt-0.5">1,240 duplicates</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">1.8 TB redundant</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low/60 flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Top File Types</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate mt-0.5">.tar.gz (42%), .mp4 (28%)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">.iso (16%)</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-space-sm pt-1">
+<button class="px-3 py-1.5 rounded-full text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg font-medium active:scale-95 transition-all">
+          Account Settings
+        </button>
+<button class="px-4 py-1.5 rounded-full bg-emerald-50 text-[#059669] hover:bg-emerald-100 font-label-lg text-label-lg font-semibold active:scale-95 transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">folder_open</span>
+<span>Inspect Files</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Temporary Account with Reclaim Box -->
+<div class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col space-y-space-md transition-all">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-full bg-rose-50 text-[#E11D48] flex items-center justify-center font-bold text-base shrink-0">
+<span class="material-symbols-outlined text-[20px]">hourglass_top</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Migration Temp Cache</span>
+<span class="material-symbols-outlined text-rose-500 text-[14px]">timer</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">SAMASA28</span>
+</div>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-[#E11D48] font-label-md text-label-md font-semibold uppercase tracking-wider shrink-0">
+          Temporary
+        </span>
+</div>
+<!-- Telemetry metric bar -->
+<div class="flex flex-col space-y-1.5 pt-0.5">
+<div class="flex justify-between items-center text-on-surface font-body-sm text-body-sm">
+<span class="font-medium">18,420 files • 940 dirs</span>
+<span class="font-numeric-stat text-numeric-stat text-on-surface">9.8 <span class="text-xs font-normal text-on-surface-variant">TB (23.4%)</span></span>
+</div>
+<div class="w-full h-2 rounded-full bg-[#F43F5E]/15 overflow-hidden">
+<div class="h-full rounded-full bg-[#F43F5E]" style="width: 23.4%;"></div>
+</div>
+</div>
+<!-- Reclaim Space Highlight Box -->
+<div class="rounded-xl bg-rose-50/90 p-space-md flex flex-col space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-[#E11D48] flex items-center gap-1 uppercase tracking-wide">
+<span class="material-symbols-outlined text-[16px]">auto_delete</span>
+            Space Reclaim Candidate
+          </span>
+<span class="font-label-md text-label-md font-semibold text-rose-800 bg-rose-200/60 px-2 py-0.5 rounded-full">
+            -5.2 TB
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-rose-900 font-medium">
+          Expired staging files &gt;180 days available for purge. Remaining post-clean: <strong class="text-rose-950 font-bold">4.6 TB</strong>.
+        </p>
+<div class="pt-1">
+<button class="w-full h-9 rounded-full bg-[#EF4444] hover:bg-rose-700 active:scale-98 text-white font-label-lg text-label-lg font-semibold flex items-center justify-center gap-1.5 shadow-xs transition-all">
+<span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+<span>Prune Temp Files (Reclaim 5.2 TB)</span>
+</button>
+</div>
+</div>
+<!-- Key Details Grid -->
+<div class="grid grid-cols-2 gap-space-xs text-left">
+<div class="p-2 rounded-xl bg-surface-container-low/60 flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Largest File</span>
+<span class="font-title-md text-title-md text-on-surface truncate mt-0.5" title="staging_dump_oct.img">staging_dump_oct.img</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">88 GB</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low/60 flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Largest Folder</span>
+<span class="font-title-md text-title-md text-on-surface truncate mt-0.5" title="/temp_sync/incoming_chunks/">/temp_sync/incoming/</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">6.1 TB</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low/60 flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Redundant Copies</span>
+<span class="font-title-md text-title-md text-rose-700 truncate mt-0.5">2,410 duplicates</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">3.4 TB redundant</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low/60 flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Top File Types</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate mt-0.5">.zip (54%), .log (22%)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">.raw (14%)</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Temporary Account -->
+<div class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col space-y-space-md transition-all">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-full bg-rose-50 text-[#E11D48] flex items-center justify-center font-bold text-base shrink-0">
+<span class="material-symbols-outlined text-[20px]">science</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Project Omega Sandbox</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Sandbox Cluster B</span>
+</div>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-rose-100 text-[#E11D48] font-label-md text-label-md font-semibold uppercase tracking-wider shrink-0">
+          Temporary
+        </span>
+</div>
+<!-- Telemetry metric bar -->
+<div class="flex flex-col space-y-1.5 pt-0.5">
+<div class="flex justify-between items-center text-on-surface font-body-sm text-body-sm">
+<span class="font-medium">10,520 files • 480 dirs</span>
+<span class="font-numeric-stat text-numeric-stat text-on-surface">4.4 <span class="text-xs font-normal text-on-surface-variant">TB (10.5%)</span></span>
+</div>
+<div class="w-full h-2 rounded-full bg-[#F43F5E]/15 overflow-hidden">
+<div class="h-full rounded-full bg-[#F43F5E]" style="width: 10.5%;"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-2 rounded-xl bg-surface-container-low/60 text-on-surface">
+<div class="flex items-center gap-1.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-[#F43F5E]">cleaning_services</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate">1.2 TB recoverable • 1,242 duplicates</span>
+</div>
+<span class="font-label-md text-label-md font-medium text-on-surface-variant shrink-0">.parquet (60%)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant pt-0.5">
+<span class="truncate">Largest: <strong class="text-on-surface font-medium">dataset_v3_augmented.parquet (45 GB)</strong></span>
+<button class="shrink-0 text-[#059669] font-label-md text-label-md font-semibold hover:underline">Details →</button>
+</div>
+</div>
+<!-- Card 4: Unclassified Account -->
+<div class="rounded-2xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col space-y-space-md transition-all">
+<div class="flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-full bg-slate-100 text-[#475569] flex items-center justify-center font-bold text-base shrink-0">
+<span class="material-symbols-outlined text-[20px]">help_center</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold truncate">Legacy FTP Mirror 01</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Unidentified Endpoint</span>
+</div>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-slate-200/80 text-[#475569] font-label-md text-label-md font-semibold uppercase tracking-wider shrink-0">
+          Unclassified
+        </span>
+</div>
+<!-- Telemetry metric bar -->
+<div class="flex flex-col space-y-1.5 pt-0.5">
+<div class="flex justify-between items-center text-on-surface font-body-sm text-body-sm">
+<span class="font-medium">3,210 files • 180 dirs</span>
+<span class="font-numeric-stat text-numeric-stat text-on-surface">2.1 <span class="text-xs font-normal text-on-surface-variant">TB (5.0%)</span></span>
+</div>
+<div class="w-full h-2 rounded-full bg-slate-200 overflow-hidden">
+<div class="h-full rounded-full bg-slate-500" style="width: 5%;"></div>
+</div>
+</div>
+<!-- Audit Required Banner -->
+<div class="flex items-center gap-2 p-2 rounded-xl bg-amber-50 text-amber-900 font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-amber-600 text-[18px]">warning</span>
+<span class="font-medium">No retention policy assigned • Audit required</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs text-left">
+<div class="p-2 rounded-xl bg-surface-container-low/60 flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Largest File</span>
+<span class="font-title-md text-title-md text-on-surface truncate mt-0.5">archive_raw_2019.iso</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">32 GB</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low/60 flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Duplicates Found</span>
+<span class="font-title-md text-title-md text-on-surface truncate mt-0.5">410 duplicates</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">320 GB</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Merge Workflow Bottom Sheet Modal (Material 3 style) -->
+<div class="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex flex-col justify-end transition-opacity" id="merge-modal">
+<div class="w-full rounded-t-3xl bg-surface-container-lowest shadow-2xl p-space-lg flex flex-col space-y-space-md max-h-[751px] overflow-y-auto">
+<!-- Sheet Handle -->
+<div class="w-12 h-1.5 rounded-full bg-slate-300 self-center shrink-0 cursor-pointer" onclick="document.getElementById('merge-modal').classList.add('hidden')"></div>
+<!-- Sheet Header -->
+<div class="flex items-start justify-between gap-space-sm pt-1">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-[#10B981] font-bold uppercase tracking-wider">Step 1 of 3</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Select Source Accounts</h3>
+</div>
+<button aria-label="Dismiss merge modal" class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-95 transition-all" onclick="document.getElementById('merge-modal').classList.add('hidden')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Select 2 or more accounts to combine. Files will be indexed, matched, and duplicates marked for automated consolidation.
+      </p>
+<!-- Selection List -->
+<div class="flex flex-col space-y-space-xs pt-1">
+<!-- Selected 1 -->
+<label class="flex items-center justify-between p-space-md rounded-2xl bg-emerald-50/70 border border-[#10B981]/20 cursor-pointer active:scale-98 transition-all">
+<div class="flex items-center gap-3 min-w-0">
+<input checked="" class="w-5 h-5 rounded-md text-[#10B981] focus:ring-0 accent-[#10B981] cursor-pointer" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate">Migration Temp Cache</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">SAMASA28 • 18,420 files</span>
+</div>
+</div>
+<span class="font-numeric-stat text-[15px] font-bold text-on-surface shrink-0">9.8 TB</span>
+</label>
+<!-- Selected 2 -->
+<label class="flex items-center justify-between p-space-md rounded-2xl bg-emerald-50/70 border border-[#10B981]/20 cursor-pointer active:scale-98 transition-all">
+<div class="flex items-center gap-3 min-w-0">
+<input checked="" class="w-5 h-5 rounded-md text-[#10B981] focus:ring-0 accent-[#10B981] cursor-pointer" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate">Project Omega Sandbox</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Cluster B • 10,520 files</span>
+</div>
+</div>
+<span class="font-numeric-stat text-[15px] font-bold text-on-surface shrink-0">4.4 TB</span>
+</label>
+<!-- Unselected option -->
+<label class="flex items-center justify-between p-space-md rounded-2xl bg-surface-container-low/50 cursor-pointer active:scale-98 transition-all">
+<div class="flex items-center gap-3 min-w-0">
+<input class="w-5 h-5 rounded-md text-[#10B981] focus:ring-0 accent-[#10B981] cursor-pointer" type="checkbox"/>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-title-md text-on-surface font-semibold truncate">Legacy FTP Mirror 01</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Unclassified • 3,210 files</span>
+</div>
+</div>
+<span class="font-numeric-stat text-[15px] font-bold text-on-surface-variant shrink-0">2.1 TB</span>
+</label>
+</div>
+<!-- Dynamic Merge Impact Hint -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[#10B981] text-[20px] shrink-0 mt-0.5">insights</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-bold text-on-surface">Merge Analysis Preview</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+            Will consolidate <strong>28,940 files</strong> (14.2 TB) and identify approximately <strong>3,652 duplicate candidates</strong> for immediate reclamation.
+          </span>
+</div>
+</div>
+<!-- Action Button -->
+<div class="pt-2 flex flex-col space-y-space-xs">
+<button class="w-full h-12 rounded-full bg-[#10B981] hover:bg-[#059669] active:scale-98 text-white font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-md transition-all">
+<span>Proceed to Target Account</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<button class="w-full py-2 text-center text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg font-medium" onclick="document.getElementById('merge-modal').classList.add('hidden')">
+          Cancel
+        </button>
+</div>
+</div>
+</div>
+</div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(15,23,42,0.06)]" data-active-classes="text-[#10B981]"><div class="h-16 px-gutter flex items-center justify-around"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-md text-label-md mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface" data-path="files-explorer" href="#"><span class="material-symbols-outlined text-[22px]">folder</span><span class="font-label-md text-label-md mt-0.5">Files</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#10B981]" data-path="accounts-vault" href="#"><span class="material-symbols-outlined text-[22px]">badge</span><span class="font-label-md text-label-md mt-0.5">Accounts</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface" data-path="duplicate-finder" href="#"><span class="material-symbols-outlined text-[22px]">copy_all</span><span class="font-label-md text-label-md mt-0.5">Duplicates</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant hover:text-on-surface" data-path="storage-cleanup" href="#"><span class="material-symbols-outlined text-[22px]">cleaning_services</span><span class="font-label-md text-label-md mt-0.5">Clean</span></a></div></nav></body></html>

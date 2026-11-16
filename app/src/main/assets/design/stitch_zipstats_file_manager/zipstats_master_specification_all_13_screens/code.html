@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZipStats — Master Specification (All 13 Screens)</title>
+    <style>
+        /* Design Tokens & CSS Variables */
+        :root {
+            /* Color Palette - Light Mode Default */
+            --surface: #f8f9ff;
+            --surface-dim: #cbdbf5;
+            --surface-bright: #ffffff;
+            --surface-container-lowest: #ffffff;
+            --surface-container-low: #eff4ff;
+            --surface-container: #e2e8f0;
+            --surface-container-high: #cbd5e1;
+            --surface-container-highest: #94a3b8;
+            
+            --on-surface: #0f172a;
+            --on-surface-variant: #334155;
+            --outline: #64748b;
+            --outline-variant: #cbd5e1;
+            
+            --primary: #0f172a;
+            --on-primary: #ffffff;
+            --primary-container: #1e293b;
+            
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #0ea5e9;
+
+            /* 10 Section Accent Colors */
+            --accent-home: #2563eb;
+            --accent-files: #0ea5e9;
+            --accent-accounts: #10b981;
+            --accent-duplicates: #f59e0b;
+            --accent-cleanup: #ef4444;
+            --accent-compare: #8b5cf6;
+            --accent-statistics: #ec4899;
+            --accent-favorites: #f43f5e;
+            --accent-search: #14b8a6;
+            --accent-tools: #6366f1;
+
+            /* Component Radius & Spacing */
+            --radius-card: 16px;
+            --radius-chip: 24px;
+            --radius-button: 12px;
+            --radius-modal: 24px;
+            
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+
+            /* Shadows & Elevation */
+            --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -2px rgba(15, 23, 42, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.1), 0 4px 6px -4px rgba(15, 23, 42, 0.1);
+
+            /* Typography */
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-size-xs: 11px;
+            --font-size-sm: 13px;
+            --font-size-md: 15px;
+            --font-size-lg: 18px;
+            --font-size-xl: 22px;
+            --font-size-xxl: 28px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --surface: #0b1220;
+                --surface-dim: #162033;
+                --surface-bright: #1e293b;
+                --surface-container-lowest: #090d16;
+                --surface-container-low: #131c2e;
+                --surface-container: #1b273d;
+                --surface-container-high: #24344d;
+                --surface-container-highest: #334866;
+                
+                --on-surface: #f1f5f9;
+                --on-surface-variant: #cbd5e1;
+                --outline: #94a3b8;
+                --outline-variant: #334155;
+                
+                --primary: #f8fafc;
+                --on-primary: #0f172a;
+                --primary-container: #334155;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family);
+        }
+
+        body {
+            background-color: var(--surface-container-lowest);
+            color: var(--on-surface);
+            padding: var(--space-xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .screen-container {
+            width: 390px;
+            background-color: var(--surface);
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            border: 8px solid #1e293b;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 844px;
+        }
+
+        .screen-label {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 6px;
+        }
+
+        /* Common Component Classes */
+        .top-bar {
+            background-color: var(--primary);
+            color: var(--on-primary);
+            padding: var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chip-scroll {
+            display: flex;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            overflow-x: auto;
+            background-color: var(--primary);
+        }
+
+        .chip {
+            background-color: var(--surface-container);
+            color: var(--on-surface);
+            padding: 6px 14px;
+            border-radius: var(--radius-chip);
+            font-size: var(--font-size-xs);
+            font-weight: 500;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .chip.active {
+            background-color: var(--accent-home);
+            color: #ffffff;
+        }
+
+        .banner {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #ffffff;
+            padding: var(--space-lg);
+            margin: var(--space-md);
+            border-radius: var(--radius-card);
+        }
+
+        .card {
+            background-color: var(--surface-bright);
+            border: 1px solid var(--outline-variant);
+            border-radius: var(--radius-card);
+            padding: var(--space-md);
+            margin: 0 var(--space-md) var(--space-md) var(--space-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .icon-badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .title {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--on-surface);
+        }
+
+        .subtitle {
+            font-size: var(--font-size-sm);
+            color: var(--outline);
+        }
+
+        .tag {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: var(--surface-container);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: var(--space-sm);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--success);
+        }
+
+        .donut {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: conic-gradient(var(--success) 0% 58.8%, var(--danger) 58.8% 92.8%, var(--outline) 92.8% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .donut-inner {
+            width: 100px;
+            height: 100px;
+            background-color: var(--surface-bright);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dialog {
+            background-color: var(--surface-bright);
+            border-radius: var(--radius-modal);
+            padding: var(--space-lg);
+            margin: auto var(--space-md) var(--space-md) var(--space-md);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--outline-variant);
+        }
+
+        .bottom-sheet {
+            background-color: var(--surface-bright);
+            border-top-left-radius: var(--radius-modal);
+            border-top-right-radius: var(--radius-modal);
+            padding: var(--space-lg);
+            margin-top: auto;
+            box-shadow: var(--shadow-lg);
+            border-top: 1px solid var(--outline-variant);
+        }
+
+        .bottom-nav {
+            margin-top: auto;
+            background-color: var(--primary);
+            display: flex;
+            justify-content: space-around;
+            padding: var(--space-sm) 0;
+            color: #ffffff;
+            font-size: 10px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            color: #94a3b8;
+        }
+
+        .nav-item.active {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. home-empty -->
+    <!-- Screen 1: Home Dashboard in Empty State with zero indexed files -->
+    <section id="home-empty" class="screen-container">
+        <div class="screen-label">1. home-empty</div>
+        <div class="top-bar">
+            <span>ZipStats</span>
+            <span>EN / عربي</span>
+        </div>
+        <div class="chip-scroll">
+            <div class="chip active">Home</div>
+            <div class="chip">Files</div>
+            <div class="chip">Accounts</div>
+        </div>
+        <div class="banner">
+            <h2 class="title" style="color: #fff;">Storage Overview</h2>
+            <p class="subtitle" style="color: #e2e8f0;">No active storage archives loaded.</p>
+        </div>
+        <div class="card" style="text-align: center; padding: 40px 20px;">
+            <p class="title">No Data Indexed</p>
+            <p class="subtitle">Please scan a real device folder or import an audit snapshot.</p>
+            <button style="margin-top: 20px; background: var(--accent-home); color: white; border: none; padding: 10px 20px; border-radius: var(--radius-button);">Quick Scan Folder</button>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item active">Home</div>
+            <div class="nav-item">Files</div>
+            <div class="nav-item">Accounts</div>
+            <div class="nav-item">Duplicates</div>
+            <div class="nav-item">Clean</div>
+        </div>
+    </section>
+
+    <!-- 2. home-loaded -->
+    <!-- Screen 2: Home Dashboard loaded with 41.8 TB telemetry and metrics -->
+    <section id="home-loaded" class="screen-container">
+        <div class="screen-label">2. home-loaded</div>
+        <div class="top-bar">
+            <span>ZipStats</span>
+            <span>EN / عربي</span>
+        </div>
+        <div class="chip-scroll">
+            <div class="chip active">Home</div>
+            <div class="chip">Files</div>
+            <div class="chip">Accounts</div>
+        </div>
+        <div class="banner">
+            <h2 class="title" style="color: #fff;">Storage Overview</h2>
+            <p class="subtitle" style="color: #e2e8f0;">Loaded • archive_backup_2025_02.zip (41.8 TB)</p>
+        </div>
+        <div class="card">
+            <p class="title">87,987 Files Indexed</p>
+            <p class="subtitle">4,120 Folders Mapped • 41.8 TB Volume</p>
+        </div>
+        <div class="card" style="background: rgba(239, 68, 68, 0.1); border-color: var(--danger);">
+            <p class="title" style="color: var(--danger);">RECLAIM ALERT: 6.4 TB</p>
+            <p class="subtitle">Recoverable space in duplicate and temporary caches.</p>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item active">Home</div>
+            <div class="nav-item">Files</div>
+            <div class="nav-item">Accounts</div>
+            <div class="nav-item">Duplicates</div>
+            <div class="nav-item">Clean</div>
+        </div>
+    </section>
+
+    <!-- 3. files -->
+    <!-- Screen 3: Files Browser listing folders and large archives -->
+    <section id="files" class="screen-container">
+        <div class="screen-label">3. files</div>
+        <div class="top-bar">
+            <span>Files Browser</span>
+            <span>Root</span>
+        </div>
+        <div class="chip-scroll">
+            <div class="chip">Home</div>
+            <div class="chip active">Files</div>
+            <div class="chip">Accounts</div>
+        </div>
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <p class="title">SAMA SA 04</p>
+                    <p class="subtitle">54,120 files • 1,840 dirs</p>
+                </div>
+                <span class="tag" style="background: #10b981; color: white;">Full</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 58.8%;"></div></div>
+            <p style="font-size: 12px; margin-top: 6px;">24.6 TB (58.8%)</p>
+        </div>
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <p class="title">SAMASA28</p>
+                    <p class="subtitle">18,420 files • 940 dirs</p>
+                </div>
+                <span class="tag" style="background: #ef4444; color: white;">Temp</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" style="width: 23.4%; background: var(--danger);"></div></div>
+            <p style="font-size: 12px; margin-top: 6px;">9.8 TB (23.4%)</p>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item">Home</div>
+            <div class="nav-item active">Files</div>
+            <div class="nav-item">Accounts</div>
+            <div class="nav-item">Duplicates</div>
+            <div class="nav-item">Clean</div>
+        </div>
+    </section>
+
+    <!-- 4. files-multiselect -->
+    <!-- Screen 4: Files Browser in active multi-select paste mode -->
+    <section id="files-multiselect" class="screen-container">
+        <div class="screen-label">4. files-multiselect</div>
+        <div class="top-bar">
+            <span>Files (Multi-Select)</span>
+            <span>3 Selected</span>
+        </div>
+        <div class="card" style="background: rgba(16, 185, 129, 0.1); border-color: var(--success); display: flex; justify-content: space-between; align-items: center;">
+            <p style="font-size: 13px; font-weight: 600;">Clipboard Active (3 items)</p>
+            <button style="background: var(--success); color: white; border: none; padding: 6px 12px; border-radius: 8px;">Paste Here</button>
+        </div>
+        <div class="card" style="border: 2px solid var(--accent-files);">
+            <p class="title">☑ SAMA SA 04</p>
+            <p class="subtitle">Selected for batch operation</p>
+        </div>
+        <div class="card" style="border: 2px solid var(--accent-files);">
+            <p class="title">☑ SAMASA28</p>
+            <p class="subtitle">Selected for batch operation</p>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item">Home</div>
+            <div class="nav-item active">Files</div>
+            <div class="nav-item">Accounts</div>
+            <div class="nav-item">Duplicates</div>
+            <div class="nav-item">Clean</div>
+        </div>
+    </section>
+
+    <!-- 5. accounts -->
+    <!-- Screen 5: Accounts Vault overview showing Full, Temp, Unclassified status groups -->
+    <section id="accounts" class="screen-container">
+        <div class="screen-label">5. accounts</div>
+        <div class="top-bar">
+            <span>Accounts Vault</span>
+            <span>14 Total</span>
+        </div>
+        <div class="chip-scroll">
+            <div class="chip">Home</div>
+            <div class="chip">Files</div>
+            <div class="chip active">Accounts</div>
+        </div>
+        <div class="banner" style="background: linear-gradient(135deg, #10b981, #059669);">
+            <h2 class="title" style="color: #fff;">Accounts Vault</h2>
+            <p class="subtitle" style="color: #e2e8f0;">14 Accounts Total • 41.8 TB Managed</p>
+        </div>
+        <div class="card">
+            <div style="display: flex; justify-content: space-between;">
+                <span>🟢 8 Full (24.6 TB)</span>
+                <span>🔴 4 Temp (14.2 TB)</span>
+            </div>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item">Home</div>
+            <div class="nav-item">Files</div>
+            <div class="nav-item active">Accounts</div>
+            <div class="nav-item">Duplicates</div>
+            <div class="nav-item">Clean</div>
+        </div>
+    </section>
+
+    <!-- 6. merge-dialog -->
+    <!-- Screen 6: Merge Accounts step 1 dialog sheet -->
+    <section id="merge-dialog" class="screen-container">
+        <div class="screen-label">6. merge-dialog</div>
+        <div class="top-bar">
+            <span>Merge Accounts</span>
+            <span>Step 1 of 3</span>
+        </div>
+        <div class="dialog">
+            <p class="title">Select Source Accounts</p>
+            <p class="subtitle" style="margin-bottom: 16px;">Consolidate duplicate accounts and merge indexes.</p>
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px;">
+                <label style="display: flex; align-items: center; gap: 8px; font-size: 13px;"><input type="checkbox" checked> Migration Temp Cache (9.8 TB)</label>
+                <label style="display: flex; align-items: center; gap: 8px; font-size: 13px;"><input type="checkbox" checked> Project Omega Sandbox (4.4 TB)</label>
+            </div>
+            <button style="width: 100%; background: var(--success); color: white; border: none; padding: 12px; border-radius: var(--radius-button); font-weight: 600;">Proceed to Target Account →</button>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item">Home</div>
+            <div class="nav-item">Files</div>
+            <div class="nav-item active">Accounts</div>
+            <div class="nav-item">Duplicates</div>
+            <div class="nav-item">Clean</div>
+        </div>
+    </section>
+
+    <!-- 7. duplicates -->
+    <!-- Screen 7: Duplicates comparison and SHA-256 matching -->
+    <section id="duplicates" class="screen-container">
+        <div class="screen-label">7. duplicates</div>
+        <div class="top-bar">
+            <span>Duplicates Finder</span>
+            <span>3,652 Matches</span>
+        </div>
+        <div class="chip-scroll">
+            <div class="chip">Accounts</div>
+            <div class="chip active">Duplicates</div>
+        </div>
+        <div class="card">
+            <p class="title">Group #1: backup_prod_2024.sql.gz</p>
+            <p class="subtitle">Identical SHA-256 across 3 volumes (184 GB each)</p>
+            <div style="display: flex; gap: 8px; margin-top: 12px;">
+                <button style="flex: 1; background: var(--surface-container); border: none; padding: 8px; border-radius: 8px;">Keep Primary</button>
+                <button style="flex: 1; background: var(--danger); color: white; border: none; padding: 8px; border-radius: 8px;">Prune 2 Copies</button>
+            </div>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item">Home</div>
+            <div class="nav-item">Files</div>
+            <div class="nav-item">Accounts</div>
+            <div class="nav-item active">Duplicates</div>
+            <div class="nav-item">Clean</div>
+        </div>
+    </section>
+
+    <!-- 8. cleanup -->
+    <!-- Screen 8: Cleanup automation engine rules and batch pruning -->
+    <section id="cleanup" class="screen-container">
+        <div class="screen-label">8. cleanup</div>
+        <div class="top-bar">
+            <span>Cleanup Engine</span>
+            <span>6.4 TB Recoverable</span>
+        </div>
+        <div class="card" style="border-left: 4px solid var(--danger);">
+            <p class="title">Expired Staging Files (>180 Days)</p>
+            <p class="subtitle">Recover up to 5.2 TB from temporary cache partitions.</p>
+            <button style="margin-top: 12px; background: var(--danger); color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 600;">Prune Temp Files</button>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item">Home</div>
+            <div class="nav-item">Files</div>
+            <div class="nav-item">Accounts</div>
+            <div class="nav-item">Duplicates</div>
+            <div class="nav-item active">Clean</div>
+        </div>
+    </section>
+
+    <!-- 9. compare -->
+    <!-- Screen 9: Side-by-side storage account comparison view -->
+    <section id="compare" class="screen-container">
+        <div class="screen-label">9. compare</div>
+        <div class="top-bar">
+            <span>Account Comparison</span>
+            <span>Diff Mode</span>
+        </div>
+        <div style="display: flex; gap: 8px; padding: 16px;">
+            <div class="card" style="flex: 1; margin: 0;">
+                <p class="title" style="font-size: 13px;">SAMA SA 04</p>
+                <p class="subtitle">24.6 TB</p>
+                <p style="font-size: 11px; margin-top: 8px; color: var(--success);">✔ Up to date</p>
+            </div>
+            <div class="card" style="flex: 1; margin: 0;">
+                <p class="title" style="font-size: 13px;">SAMASA28</p>
+                <p class="subtitle">9.8 TB</p>
+                <p style="font-size: 11px; margin-top: 8px; color: var(--danger);">⚠ Stale Cache</p>
+            </div>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item">Home</div>
+            <div class="nav-item">Files</div>
+            <div class="nav-item active">Accounts</div>
+            <div class="nav-item">Duplicates</div>
+            <div class="nav-item">Clean</div>
+        </div>
+    </section>
+
+    <!-- 10. statistics -->
+    <!-- Screen 10: Statistics telemetry and Donut chart breakdown -->
+    <section id="statistics" class="screen-container">
+        <div class="screen-label">10. statistics</div>
+        <div class="top-bar">
+            <span>Storage Statistics</span>
+            <span>Telemetry</span>
+        </div>
+        <div class="card" style="text-align: center; padding: 20px;">
+            <div class="donut">
+                <div class="donut-inner">
+                    <span style="font-weight: bold; font-size: 14px;">41.8 TB</span>
+                    <span style="font-size: 10px; color: var(--outline);">Indexed</span>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: space-around; margin-top: 16px; font-size: 12px;">
+                <span>🟢 Full (58.8%)</span>
+                <span>🔴 Temp (34.0%)</span>
+                <span>⚪ Other (7.2%)</span>
+            </div>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item active">Home</div>
+            <div class="nav-item">Files</div>
+            <div class="nav-item">Accounts</div>
+            <div class="nav-item">Duplicates</div>
+            <div class="nav-item">Clean</div>
+        </div>
+    </section>
+
+    <!-- 11. favorites -->
+    <!-- Screen 11: Favorites bookmarked directories and archives -->
+    <section id="favorites" class="screen-container">
+        <div class="screen-label">11. favorites</div>
+        <div class="top-bar">
+            <span>Bookmarked Favorites</span>
+            <span>4 Saved</span>
+        </div>
+        <div class="card">
+            <p class="title">⭐ archive_backup_2025_02.zip</p>
+            <p class="subtitle">Enterprise Storage • 41.8 TB</p>
+        </div>
+        <div class="card">
+            <p class="title">⭐ audit_logs_Q4.tar.gz</p>
+            <p class="subtitle">Compliance Archive • 42.5 GB</p>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item">Home</div>
+            <div class="nav-item">Files</div>
+            <div class="nav-item">Accounts</div>
+            <div class="nav-item">Duplicates</div>
+            <div class="nav-item">Clean</div>
+        </div>
+    </section>
+
+    <!-- 12. search -->
+    <!-- Screen 12: Global search interface across files and accounts -->
+    <section id="search" class="screen-container">
+        <div class="screen-label">12. search</div>
+        <div class="top-bar">
+            <span>Global Search</span>
+            <span>Query</span>
+        </div>
+        <div style="padding: 16px;">
+            <input type="text" placeholder="Search files, hashes, accounts..." style="width: 100%; padding: 12px; border-radius: var(--radius-button); border: 1px solid var(--outline-variant); background: var(--surface-bright); color: var(--on-surface);">
+        </div>
+        <div class="card">
+            <p class="title">backup_prod_2024.sql.gz</p>
+            <p class="subtitle">Found in SAMA SA 04 • 184 GB</p>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item">Home</div>
+            <div class="nav-item">Files</div>
+            <div class="nav-item">Accounts</div>
+            <div class="nav-item">Duplicates</div>
+            <div class="nav-item">Clean</div>
+        </div>
+    </section>
+
+    <!-- 13. tools -->
+    <!-- Screen 13: Advanced tools and audit export utilities -->
+    <section id="tools" class="screen-container">
+        <div class="screen-label">13. tools</div>
+        <div class="top-bar">
+            <span>Advanced Tools</span>
+            <span>Utilities</span>
+        </div>
+        <div class="card">
+            <p class="title">Export Full Audit Report</p>
+            <p class="subtitle">Generate complete JSON/CSV telemetry bundle.</p>
+            <button style="margin-top: 12px; width: 100%; background: var(--primary); color: var(--on-primary); border: none; padding: 10px; border-radius: var(--radius-button); font-weight: 600;">Export Report (.json)</button>
+        </div>
+        <div class="card">
+            <p class="title">Real Device Folder Scanner</p>
+            <p class="subtitle">Index local storage partitions securely.</p>
+            <button style="margin-top: 12px; width: 100%; background: var(--accent-files); color: white; border: none; padding: 10px; border-radius: var(--radius-button); font-weight: 600;">Scan Directory</button>
+        </div>
+        <div class="bottom-nav">
+            <div class="nav-item">Home</div>
+            <div class="nav-item">Files</div>
+            <div class="nav-item">Accounts</div>
+            <div class="nav-item">Duplicates</div>
+            <div class="nav-item">Clean</div>
+        </div>
+    </section>
+
+</body>
+</html>

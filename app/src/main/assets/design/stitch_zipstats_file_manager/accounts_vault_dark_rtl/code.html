@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: 'class', theme: { extend: { colors: { 'on-primary-fixed-variant': '#3f465c', 'on-primary-container': '#7c839b', 'on-tertiary-fixed-variant': '#005236', 'on-surface-variant': '#94A3B8', 'error': '#ba1a1a', 'tertiary': '#000000', 'secondary-container': '#316bf3', 'on-secondary-container': '#fefcff', 'surface-container-high': '#1e293b', 'on-primary': '#ffffff', 'tertiary-fixed': '#6ffbbe', 'secondary-fixed-dim': '#b4c5ff', 'inverse-surface': '#213145', 'surface-variant': '#1e293b', 'surface-container': '#162033', 'primary-fixed-dim': '#bec6e0', 'on-secondary-fixed-variant': '#003ea8', 'inverse-on-surface': '#eaf1ff', 'outline': '#76777d', 'surface-bright': '#1e293b', 'on-surface': '#F1F5F9', 'primary': '#000000', 'on-secondary-fixed': '#00174b', 'on-error-container': '#93000a', 'inverse-primary': '#bec6e0', 'surface-dim': '#0B1220', 'on-background': '#F1F5F9', 'tertiary-fixed-dim': '#4edea3', 'surface-container-low': '#111927', 'on-secondary': '#ffffff', 'primary-container': '#131b2e', 'on-error': '#ffffff', 'error-container': '#ffdad6', 'primary-fixed': '#dae2fd', 'secondary': '#0051d5', 'on-tertiary': '#ffffff', 'secondary-fixed': '#dbe1ff', 'surface': '#0B1220', 'tertiary-container': '#002113', 'on-primary-fixed': '#131b2e', 'background': '#0B1220', 'outline-variant': '#334155', 'on-tertiary-container': '#009668', 'surface-tint': '#565e74', 'surface-container-highest': '#1e293b', 'surface-container-lowest': '#0B1220', 'on-tertiary-fixed': '#002113' }, borderRadius: { 'DEFAULT': '0.25rem', 'lg': '0.5rem', 'xl': '0.75rem', 'full': '9999px' }, spacing: { 'gutter-sm': '0.5rem', 'margin': '1rem', 'gutter': '0.75rem', 'space-xs': '0.25rem', 'space-sm': '0.5rem', 'space-lg': '1rem', 'space-xl': '1.5rem', 'space-md': '0.75rem', 'margin-compact': '0.75rem' }, fontFamily: { 'body-md': ['Inter', 'system-ui', 'sans-serif'], 'headline-md': ['Inter', 'system-ui', 'sans-serif'], 'title-md': ['Inter', 'system-ui', 'sans-serif'], 'headline-sm': ['Inter', 'system-ui', 'sans-serif'], 'body-lg': ['Inter', 'system-ui', 'sans-serif'], 'display-lg': ['Inter', 'system-ui', 'sans-serif'], 'body-sm': ['Inter', 'system-ui', 'sans-serif'], 'numeric-stat': ['Inter', 'sans-serif'], 'headline-lg': ['Inter', 'system-ui', 'sans-serif'], 'label-lg': ['Inter', 'system-ui', 'sans-serif'], 'label-md': ['Inter', 'system-ui', 'sans-serif'] }, fontSize: { 'body-md': ['14px', { 'lineHeight': '20px', 'fontWeight': '400' }], 'headline-md': ['20px', { 'lineHeight': '28px', 'fontWeight': '600' }], 'title-md': ['14px', { 'lineHeight': '20px', 'fontWeight': '600' }], 'headline-sm': ['16px', { 'lineHeight': '24px', 'fontWeight': '600' }], 'body-lg': ['16px', { 'lineHeight': '24px', 'fontWeight': '400' }], 'display-lg': ['32px', { 'lineHeight': '40px', 'letterSpacing': '-0.02em', 'fontWeight': '700' }], 'body-sm': ['12px', { 'lineHeight': '16px', 'fontWeight': '400' }], 'numeric-stat': ['22px', { 'lineHeight': '28px', 'letterSpacing': '-0.01em', 'fontWeight': '700' }], 'headline-lg': ['24px', { 'lineHeight': '32px', 'letterSpacing': '-0.01em', 'fontWeight': '600' }], 'label-lg': ['13px', { 'lineHeight': '18px', 'fontWeight': '500' }], 'label-md': ['11px', { 'lineHeight': '16px', 'letterSpacing': '0.02em', 'fontWeight': '500' }] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+      background-color: #0B1220;
+    }
+  </style>
+</head><body class="bg-[#0B1220] text-[#F1F5F9] antialiased"><header class="fixed top-0 w-full z-50 pt-safe bg-[#0B1220]/95 backdrop-blur-md border-b border-[#1E293B] shadow-[0_4px_20px_rgba(0,0,0,0.4)]"><div class="h-28 flex flex-col justify-between"><div class="flex items-center justify-between px-margin pt-2"><div class="flex items-center gap-space-sm min-w-0"><img alt="ZipStats Logo" class="h-8 w-auto object-contain flex-shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrAKVXBPwMt605Edb6wD1xLs1PgBaD94Vlwm_5DNTcIMy1X5ZCqSaszTjR77Moep9DWpcVe8A6iV6DkCLHS2gaVT3lBPps8bu2m9rpbELcQ17X_K4l7VvULQaM70fQ5Gkvk2zt8ups_QgWWC0vsiczqo8dlq1m09eVjHIwYN77Asf2tSEo0auC_4a7QEyMBbuwxtipeGSyWsnEjU3nB72VaYMxzxmaLFMag28QDV7WPm"/><div class="flex flex-col truncate"><span class="font-headline-md text-headline-sm text-[#F1F5F9] font-bold leading-tight truncate">ZipStats</span><span class="font-body-sm text-body-sm text-[#94A3B8] leading-none truncate">Accounts &amp; Files Manager</span></div></div><div class="flex items-center gap-space-xs flex-shrink-0"><button aria-label="Toggle Theme" class="h-8 w-8 rounded-full bg-[#162033] border border-[#1E293B] text-amber-400 flex items-center justify-center hover:bg-[#1E293B] active:scale-95 transition-all"><span class="material-symbols-outlined text-[18px]">light_mode</span></button><button aria-label="Toggle Language" class="h-8 px-2.5 rounded-full bg-[#162033] border border-[#1E293B] text-[#94A3B8] hover:text-[#F1F5F9] font-label-md text-label-md flex items-center justify-center hover:bg-[#1E293B] active:scale-95 transition-all">EN / عربي</button><button aria-label="Open File" class="h-8 w-8 rounded-full bg-[#162033] border border-[#1E293B] text-[#94A3B8] hover:text-[#F1F5F9] flex items-center justify-center hover:bg-[#1E293B] active:scale-95 transition-all"><span class="material-symbols-outlined text-[18px]">drive_folder_upload</span></button><div class="w-8 h-8 rounded-full bg-emerald-600/30 border border-emerald-500/40 flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-emerald-400 text-[18px]">person</span></div></div></div><div class="overflow-x-auto no-scrollbar flex items-center gap-space-xs px-margin pb-2"><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="dashboard" href="#"><span class="w-2 h-2 rounded-full bg-[#2563EB]"></span><span>Home</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="files-explorer" href="#"><span class="w-2 h-2 rounded-full bg-[#0EA5E9]"></span><span>Files</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-white bg-emerald-600 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all shadow-[0_0_12px_rgba(16,185,129,0.35)]" data-path="accounts-vault" href="#"><span class="w-2 h-2 rounded-full bg-white animate-pulse"></span><span>Accounts</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="duplicate-finder" href="#"><span class="w-2 h-2 rounded-full bg-[#F59E0B]"></span><span>Duplicates</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="storage-cleanup" href="#"><span class="w-2 h-2 rounded-full bg-[#F97316]"></span><span>Cleanup</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="file-comparator" href="#"><span class="w-2 h-2 rounded-full bg-[#14B8A6]"></span><span>Compare</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="statistics-overview" href="#"><span class="w-2 h-2 rounded-full bg-[#8B5CF6]"></span><span>Statistics</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="favorite-items" href="#"><span class="w-2 h-2 rounded-full bg-[#EC4899]"></span><span>Favorites</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="advanced-search" href="#"><span class="w-2 h-2 rounded-full bg-[#06B6D4]"></span><span>Search</span></a><a class="flex items-center gap-1.5 px-3 py-1 rounded-full text-[#94A3B8] bg-[#162033] border border-[#1E293B]/70 font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all" data-path="utility-tools" href="#"><span class="w-2 h-2 rounded-full bg-[#475569]"></span><span>Tools</span></a></div></div></header><main class="flex flex-col relative w-full pt-28 pb-20 bg-[#0B1220] min-h-screen"><div class="flex flex-col w-full text-right" dir="rtl" style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans Arabic', 'Cairo', sans-serif;">
+<!-- Hero Header / Gradient Banner -->
+<section class="px-margin pt-space-md pb-space-lg">
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-bl from-[#0f1d2e] via-[#063e30] to-[#02231b] p-space-lg text-white border border-[#1E293B] shadow-[0_8px_24px_rgba(0,0,0,0.4)]">
+<!-- Ambient Glow Decor -->
+<div class="absolute -top-12 -left-12 w-40 h-40 bg-emerald-500/20 rounded-full blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -right-10 w-36 h-36 bg-teal-400/15 rounded-full blur-xl pointer-events-none"></div>
+<!-- Top Row Badge + Info Trigger -->
+<div class="relative z-10 flex items-center justify-between mb-space-sm">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 font-label-md text-label-md backdrop-blur-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="tracking-wide">14 حساباً إجمالاً • 41.8 TB مُدار</span>
+</div>
+<button aria-label="معلومات الخزينة" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 flex items-center justify-center text-emerald-200 transition-all border border-white/10">
+<span class="material-symbols-outlined text-[18px]">info</span>
+</button>
+</div>
+<!-- Title & Subtitle -->
+<div class="relative z-10 mb-space-md">
+<h1 class="font-headline-lg text-headline-lg font-bold text-[#F1F5F9] tracking-tight mb-1">
+          خزينة الحسابات
+        </h1>
+<p class="font-body-md text-body-md text-emerald-100/80 leading-snug">
+          توزيع السعة، القياس عن بُعد، ودمج الحسابات
+        </p>
+</div>
+<!-- Summary Stat Chips -->
+<div class="relative z-10 grid grid-cols-3 gap-space-xs pt-space-xs">
+<div class="bg-black/40 border border-white/5 backdrop-blur-sm rounded-lg p-2 flex flex-col">
+<span class="font-label-md text-label-md text-emerald-300/90 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> مكتمل
+          </span>
+<span class="font-numeric-stat text-headline-sm text-[#F1F5F9] mt-0.5">24.6 TB</span>
+<span class="font-body-sm text-body-sm text-emerald-200/60">8 حسابات</span>
+</div>
+<div class="bg-black/40 border border-white/5 backdrop-blur-sm rounded-lg p-2 flex flex-col">
+<span class="font-label-md text-label-md text-rose-300/90 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span> مؤقت
+          </span>
+<span class="font-numeric-stat text-headline-sm text-[#F1F5F9] mt-0.5">14.2 TB</span>
+<span class="font-body-sm text-body-sm text-rose-200/60">4 حسابات</span>
+</div>
+<div class="bg-black/40 border border-white/5 backdrop-blur-sm rounded-lg p-2 flex flex-col">
+<span class="font-label-md text-label-md text-slate-300/90 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span> غير مصنف
+          </span>
+<span class="font-numeric-stat text-headline-sm text-[#F1F5F9] mt-0.5">3.0 TB</span>
+<span class="font-body-sm text-body-sm text-slate-400">2 حساب</span>
+</div>
+</div>
+</div>
+<!-- Micro telemetry ticker -->
+<div class="mt-space-sm px-1 flex items-center justify-between text-[#94A3B8] font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-emerald-400">verified</span>
+<span>إجمالي 87,987 ملفاً مسجلاً عبر بيانات الاعتماد النشطة</span>
+</div>
+<span class="font-label-md text-label-md bg-[#162033] border border-[#1E293B] px-2 py-0.5 rounded-full text-[#94A3B8]">مُحدّث الآن</span>
+</div>
+</section>
+<!-- Quick Action: Merge Accounts Card -->
+<section class="px-margin mb-space-md">
+<div class="bg-[#162033] border border-[#1E293B] rounded-xl p-space-md flex items-center justify-between gap-space-md shadow-[0_4px_16px_rgba(0,0,0,0.3)]">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-11 h-11 rounded-xl bg-emerald-600/20 border border-emerald-500/30 text-emerald-400 flex items-center justify-center flex-shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">call_merge</span>
+</div>
+<div class="min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-[#F1F5F9] font-semibold leading-tight">
+            دمج الحسابات
+          </h2>
+<p class="font-body-sm text-body-sm text-[#94A3B8] mt-0.5 line-clamp-1">
+            دمج الحسابات المكررة وترحيل الهياكل وإلغاء الازدواجية آلياً
+          </p>
+</div>
+</div>
+<button class="h-9 px-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white active:scale-95 transition-all font-label-lg text-label-lg flex items-center gap-1.5 flex-shrink-0 shadow-[0_0_12px_rgba(16,185,129,0.3)]" onclick="document.getElementById('mergeBottomSheet').classList.remove('hidden')">
+<span>دمج</span>
+<span class="material-symbols-outlined text-[16px] scale-x-[-1]">arrow_back</span>
+</button>
+</div>
+</section>
+<!-- Filter Chips Row -->
+<section class="px-margin mb-space-md overflow-x-auto no-scrollbar flex items-center gap-space-xs">
+<button class="h-8 px-3 rounded-full bg-emerald-600 text-white font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all flex items-center gap-1 shadow-sm">
+<span>الكل</span>
+<span class="bg-emerald-700/90 px-1.5 py-0.2 rounded-full font-numeric-stat text-[11px]">14</span>
+</button>
+<button class="h-8 px-3 rounded-full bg-[#162033] border border-[#1E293B] text-[#94A3B8] hover:text-[#F1F5F9] font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all flex items-center gap-1 hover:bg-[#1E293B]">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>مكتمل</span>
+<span class="text-[#64748B] font-numeric-stat text-[11px]">8</span>
+</button>
+<button class="h-8 px-3 rounded-full bg-[#162033] border border-[#1E293B] text-[#94A3B8] hover:text-[#F1F5F9] font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all flex items-center gap-1 hover:bg-[#1E293B]">
+<span class="w-2 h-2 rounded-full bg-rose-500"></span>
+<span>مؤقت</span>
+<span class="text-[#64748B] font-numeric-stat text-[11px]">4</span>
+</button>
+<button class="h-8 px-3 rounded-full bg-[#162033] border border-[#1E293B] text-[#94A3B8] hover:text-[#F1F5F9] font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all flex items-center gap-1 hover:bg-[#1E293B]">
+<span class="w-2 h-2 rounded-full bg-slate-400"></span>
+<span>غير مصنف</span>
+<span class="text-[#64748B] font-numeric-stat text-[11px]">2</span>
+</button>
+<button class="h-8 px-2.5 rounded-full bg-[#162033] border border-[#1E293B] text-[#94A3B8] hover:text-[#F1F5F9] font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all flex items-center gap-1 mr-auto">
+<span>الحجم</span>
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</button>
+</section>
+<!-- Accounts List -->
+<section class="px-margin flex flex-col gap-space-lg mb-space-xl">
+<!-- Card 1: Full Corporate Account -->
+<div class="bg-[#162033] border border-[#1E293B] rounded-xl p-space-lg shadow-[0_4px_20px_rgba(0,0,0,0.3)] flex flex-col gap-space-md">
+<!-- Card Top: Identity & Status Badge -->
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-xl bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">corporate_fare</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-[#F1F5F9] font-bold truncate">SAMA Corporate Primary</h3>
+<span class="h-5 px-2 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 font-label-md text-label-md flex items-center">مكتمل</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#94A3B8] truncate mt-0.5">
+              SAMA SA 04 • 54,120 ملفاً • 1,840 مجلداً
+            </p>
+</div>
+</div>
+<button aria-label="خيارات الحساب" class="w-8 h-8 rounded-full text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-[#1E293B] flex items-center justify-center flex-shrink-0 transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<!-- Capacity Usage Progress -->
+<div class="bg-[#0B1220]/70 border border-[#1E293B] rounded-lg p-space-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-[#94A3B8]">المساحة المستخدمة من الإجمالي المُدار</span>
+<div class="flex items-baseline gap-1">
+<span class="font-numeric-stat text-headline-sm text-[#F1F5F9] font-bold">24.6 TB</span>
+<span class="text-emerald-400 font-semibold">(58.8%)</span>
+</div>
+</div>
+<div class="w-full h-2 rounded-full bg-[#1E293B] overflow-hidden flex">
+<div class="h-full bg-emerald-500 rounded-full transition-all duration-500" style="width: 58.8%;"></div>
+</div>
+</div>
+<!-- Telemetry Breakdown Sub-grid -->
+<div class="grid grid-cols-1 gap-2 pt-0.5">
+<!-- Largest File -->
+<div class="flex items-center justify-between text-body-sm font-body-sm bg-[#0B1220]/60 border border-[#1E293B]/70 rounded-lg px-3 py-2">
+<div class="flex items-center gap-2 text-[#94A3B8] min-w-0">
+<span class="material-symbols-outlined text-[18px] text-teal-400 flex-shrink-0">inventory_2</span>
+<span class="font-semibold text-[#F1F5F9]">أكبر ملف:</span>
+<span class="truncate dir-ltr text-left font-mono text-[12px] text-slate-300">backup_prod_2024.sql.gz</span>
+</div>
+<span class="font-numeric-stat font-bold text-[#F1F5F9] whitespace-nowrap mr-2">184 GB</span>
+</div>
+<!-- Largest Folder -->
+<div class="flex items-center justify-between text-body-sm font-body-sm bg-[#0B1220]/60 border border-[#1E293B]/70 rounded-lg px-3 py-2">
+<div class="flex items-center gap-2 text-[#94A3B8] min-w-0">
+<span class="material-symbols-outlined text-[18px] text-teal-400 flex-shrink-0">folder_zip</span>
+<span class="font-semibold text-[#F1F5F9]">أكبر مجلد:</span>
+<span class="truncate dir-ltr text-left font-mono text-[12px] text-slate-300">archives/customer_vault</span>
+</div>
+<span class="font-numeric-stat font-bold text-[#F1F5F9] whitespace-nowrap mr-2">14.2 TB</span>
+</div>
+<!-- Redundancy Tag -->
+<div class="flex items-center justify-between text-body-sm font-body-sm bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2">
+<div class="flex items-center gap-2 text-amber-200 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-amber-400 flex-shrink-0">content_copy</span>
+<span class="font-semibold text-amber-300">نسخ مكررة:</span>
+<span class="truncate text-amber-200/90">1,240 ملف مكرر تم رصده</span>
+</div>
+<span class="font-numeric-stat font-bold text-amber-400 whitespace-nowrap mr-2">1.8 TB فائض</span>
+</div>
+</div>
+<!-- File Types Breakdown -->
+<div class="flex flex-col gap-1.5 pt-1">
+<span class="font-label-md text-label-md text-[#94A3B8]">الأنواع السائدة للملفات:</span>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="px-2.5 py-1 rounded-full bg-[#0B1220]/80 border border-[#1E293B] font-label-md text-label-md text-[#F1F5F9] flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-sky-400"></span>
+<span class="dir-ltr font-mono text-[11px]">.tar.gz</span>
+<span class="font-bold text-[#94A3B8]">42%</span>
+</span>
+<span class="px-2.5 py-1 rounded-full bg-[#0B1220]/80 border border-[#1E293B] font-label-md text-label-md text-[#F1F5F9] flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-violet-400"></span>
+<span class="dir-ltr font-mono text-[11px]">.mp4</span>
+<span class="font-bold text-[#94A3B8]">28%</span>
+</span>
+<span class="px-2.5 py-1 rounded-full bg-[#0B1220]/80 border border-[#1E293B] font-label-md text-label-md text-[#F1F5F9] flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-amber-400"></span>
+<span class="dir-ltr font-mono text-[11px]">.iso</span>
+<span class="font-bold text-[#94A3B8]">16%</span>
+</span>
+</div>
+</div>
+<!-- Card Action Buttons -->
+<div class="grid grid-cols-2 gap-space-sm pt-2">
+<button class="h-10 rounded-full bg-[#1E293B] hover:bg-[#28374d] text-[#F1F5F9] active:scale-95 transition-all font-label-lg text-label-lg flex items-center justify-center gap-1.5 border border-[#334155]/60">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+<span>فحص الملفات</span>
+</button>
+<button class="h-10 rounded-full bg-[#0B1220] hover:bg-[#162033] text-[#94A3B8] hover:text-[#F1F5F9] active:scale-95 transition-all font-label-lg text-label-lg flex items-center justify-center gap-1.5 border border-[#1E293B]">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>إعدادات الحساب</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Migration Temp Cache (Actionable / Temp alert) -->
+<div class="bg-[#162033] border border-[#1E293B] rounded-xl p-space-lg shadow-[0_4px_20px_rgba(0,0,0,0.3)] flex flex-col gap-space-md">
+<!-- Card Top: Identity & Status Badge -->
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-10 h-10 rounded-xl bg-rose-950/60 border border-rose-500/30 text-rose-400 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]">nest_clock_farsight_analog</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-[#F1F5F9] font-bold truncate">Migration Temp Cache</h3>
+<span class="h-5 px-2 rounded-full bg-rose-950/80 border border-rose-500/40 text-rose-300 font-label-md text-label-md flex items-center">مؤقت</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#94A3B8] truncate mt-0.5">
+              SAMASA28 • 18,420 ملفاً • 940 مجلداً
+            </p>
+</div>
+</div>
+<button aria-label="خيارات الحساب" class="w-8 h-8 rounded-full text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-[#1E293B] flex items-center justify-center flex-shrink-0 transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+<!-- Capacity Usage Progress -->
+<div class="bg-[#0B1220]/70 border border-[#1E293B] rounded-lg p-space-sm flex flex-col gap-1.5">
+<div class="flex items-center justify-between font-label-md text-label-md">
+<span class="text-[#94A3B8]">المساحة المستخدمة</span>
+<div class="flex items-baseline gap-1">
+<span class="font-numeric-stat text-headline-sm text-[#F1F5F9] font-bold">9.8 TB</span>
+<span class="text-rose-400 font-semibold">(23.4%)</span>
+</div>
+</div>
+<div class="w-full h-2 rounded-full bg-[#1E293B] overflow-hidden flex">
+<div class="h-full bg-rose-500 rounded-full transition-all duration-500" style="width: 23.4%;"></div>
+</div>
+</div>
+<!-- Actionable Clean candidate callout box -->
+<div class="bg-rose-500/10 border border-rose-500/25 rounded-xl p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-rose-300 font-headline-sm text-headline-sm font-bold">
+<span class="material-symbols-outlined text-[20px] text-rose-400">auto_delete</span>
+<span>مرشح لاستعادة المساحة</span>
+</div>
+<span class="font-numeric-stat text-headline-sm font-bold text-rose-400 dir-ltr">-5.2 TB</span>
+</div>
+<p class="font-body-sm text-body-sm text-rose-200/80 leading-relaxed">
+          ملفات تترحيل مؤقتة منتهية الصلاحية منذ أكثر من 180 يوماً متاحة للحذف الآمن. المتبقي المقدر بعد التنظيف: 4.6 TB.
+        </p>
+<button class="mt-1 h-9 px-3 rounded-full bg-rose-600 hover:bg-rose-500 text-white font-label-lg text-label-lg flex items-center justify-center gap-1.5 active:scale-95 transition-all shadow-[0_0_12px_rgba(225,29,72,0.3)]">
+<span class="material-symbols-outlined text-[18px]">delete_sweep</span>
+<span>حذف الملفات المؤقتة (استعادة 5.2 TB)</span>
+</button>
+</div>
+<!-- Telemetry breakdown -->
+<div class="grid grid-cols-1 gap-2 pt-0.5">
+<div class="flex items-center justify-between text-body-sm font-body-sm bg-[#0B1220]/60 border border-[#1E293B]/70 rounded-lg px-3 py-2">
+<div class="flex items-center gap-2 text-[#94A3B8] min-w-0">
+<span class="material-symbols-outlined text-[18px] text-slate-400 flex-shrink-0">file_present</span>
+<span class="font-semibold text-[#F1F5F9]">أكبر ملف:</span>
+<span class="truncate dir-ltr text-left font-mono text-[12px] text-slate-300">staging_dump_oct.img</span>
+</div>
+<span class="font-numeric-stat font-bold text-[#F1F5F9] whitespace-nowrap mr-2">92 GB</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm bg-[#0B1220]/60 border border-[#1E293B]/70 rounded-lg px-3 py-2">
+<div class="flex items-center gap-2 text-[#94A3B8] min-w-0">
+<span class="material-symbols-outlined text-[18px] text-slate-400 flex-shrink-0">folder_open</span>
+<span class="font-semibold text-[#F1F5F9]">أكبر مجلد:</span>
+<span class="truncate dir-ltr text-left font-mono text-[12px] text-slate-300">temp/batch_transfers</span>
+</div>
+<span class="font-numeric-stat font-bold text-[#F1F5F9] whitespace-nowrap mr-2">6.1 TB</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2">
+<div class="flex items-center gap-2 text-amber-200 min-w-0">
+<span class="material-symbols-outlined text-[18px] text-amber-400 flex-shrink-0">copy_all</span>
+<span class="font-semibold text-amber-300">نسخ مكررة:</span>
+<span class="truncate text-amber-200/90">2,410 ملفات مطابقة لحساب SAMA 04</span>
+</div>
+<span class="font-numeric-stat font-bold text-amber-400 whitespace-nowrap mr-2">3.4 TB</span>
+</div>
+</div>
+<!-- Action buttons -->
+<div class="grid grid-cols-2 gap-space-sm pt-2">
+<button class="h-10 rounded-full bg-[#1E293B] hover:bg-[#28374d] text-[#F1F5F9] active:scale-95 transition-all font-label-lg text-label-lg flex items-center justify-center gap-1.5 border border-[#334155]/60">
+<span class="material-symbols-outlined text-[18px]">find_in_page</span>
+<span>فحص المحتويات</span>
+</button>
+<button class="h-10 rounded-full bg-emerald-600 text-white hover:bg-emerald-500 active:scale-95 transition-all font-label-lg text-label-lg flex items-center justify-center gap-1.5 shadow-[0_0_12px_rgba(16,185,129,0.3)]" onclick="document.getElementById('mergeBottomSheet').classList.remove('hidden')">
+<span class="material-symbols-outlined text-[18px]">merge</span>
+<span>بدء الدمج</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Interactive Slide-up Bottom Sheet (Step 1 of 3: Select Source Accounts) -->
+<aside class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex flex-col justify-end transition-opacity duration-300" id="mergeBottomSheet">
+<!-- Dismiss Backdrop Area -->
+<div class="flex-1 w-full" onclick="document.getElementById('mergeBottomSheet').classList.add('hidden')"></div>
+<!-- Sheet Content Container -->
+<div class="w-full bg-[#162033] border-t border-[#1E293B] rounded-t-2xl p-space-lg flex flex-col max-h-[751px] overflow-y-auto shadow-2xl relative">
+<!-- Top Drag Bar & Close -->
+<div class="w-12 h-1.5 bg-[#1E293B] rounded-full mx-auto mb-space-sm"></div>
+<div class="flex items-center justify-between pb-space-sm">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 font-label-md text-label-md font-bold">الخطوة 1 من 3</span>
+<span class="text-[#94A3B8] font-label-md text-label-md">• المعالجة الذكية</span>
+</div>
+<button class="w-8 h-8 rounded-full bg-[#0B1220] border border-[#1E293B] flex items-center justify-center text-[#94A3B8] hover:text-[#F1F5F9] hover:bg-[#1E293B] active:scale-90 transition-all" onclick="document.getElementById('mergeBottomSheet').classList.add('hidden')">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Sheet Header -->
+<div class="mb-space-md">
+<h2 class="font-headline-md text-headline-md text-[#F1F5F9] font-bold leading-tight">
+          تحديد الحسابات المصدر
+        </h2>
+<p class="font-body-md text-body-md text-[#94A3B8] mt-1">
+          حدد حسابين أو أكثر لدمجهما. ستتم فهرسة الملفات ومطابقتها وتحديد العناصر المكررة للدمج التلقائي.
+        </p>
+</div>
+<!-- Account Selectable Rows List -->
+<div class="flex flex-col gap-space-sm mb-space-md">
+<!-- Option 1 (Checked) -->
+<label class="flex items-center justify-between p-space-md rounded-xl bg-emerald-500/10 border border-emerald-500/30 cursor-pointer transition-all active:scale-[0.99]">
+<div class="flex items-center gap-space-md min-w-0">
+<input checked="" class="w-5 h-5 rounded text-emerald-600 focus:ring-0 accent-emerald-500 cursor-pointer flex-shrink-0 bg-[#0B1220] border-[#1E293B]" type="checkbox"/>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-[#F1F5F9] font-semibold truncate">Migration Temp Cache</span>
+<span class="text-[11px] px-1.5 py-0.2 rounded bg-rose-950/80 border border-rose-500/30 text-rose-300 font-label-md">مؤقت</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#94A3B8] truncate">
+                SAMASA28 • 18,420 ملفاً
+              </p>
+</div>
+</div>
+<span class="font-numeric-stat text-headline-sm font-bold text-emerald-400 whitespace-nowrap mr-2">9.8 TB</span>
+</label>
+<!-- Option 2 (Checked) -->
+<label class="flex items-center justify-between p-space-md rounded-xl bg-emerald-500/10 border border-emerald-500/30 cursor-pointer transition-all active:scale-[0.99]">
+<div class="flex items-center gap-space-md min-w-0">
+<input checked="" class="w-5 h-5 rounded text-emerald-600 focus:ring-0 accent-emerald-500 cursor-pointer flex-shrink-0 bg-[#0B1220] border-[#1E293B]" type="checkbox"/>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-[#F1F5F9] font-semibold truncate">Project Omega Sandbox</span>
+<span class="text-[11px] px-1.5 py-0.2 rounded bg-slate-800 border border-slate-700 text-slate-300 font-label-md">مؤقت</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#94A3B8] truncate">
+                Cluster B • 10,520 ملفاً
+              </p>
+</div>
+</div>
+<span class="font-numeric-stat text-headline-sm font-bold text-emerald-400 whitespace-nowrap mr-2">4.4 TB</span>
+</label>
+<!-- Option 3 (Unchecked) -->
+<label class="flex items-center justify-between p-space-md rounded-xl bg-[#0B1220]/70 border border-[#1E293B] hover:bg-[#1E293B]/60 cursor-pointer transition-all active:scale-[0.99]">
+<div class="flex items-center gap-space-md min-w-0">
+<input class="w-5 h-5 rounded text-emerald-600 focus:ring-0 accent-emerald-500 cursor-pointer flex-shrink-0 bg-[#0B1220] border-[#1E293B]" type="checkbox"/>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-[#F1F5F9] font-semibold truncate">Legacy FTP Mirror 01</span>
+<span class="text-[11px] px-1.5 py-0.2 rounded bg-slate-800 border border-slate-700 text-slate-300 font-label-md">غير مصنف</span>
+</div>
+<p class="font-body-sm text-body-sm text-[#94A3B8] truncate">
+                Archive Node 07 • 3,210 ملفات
+              </p>
+</div>
+</div>
+<span class="font-numeric-stat text-headline-sm font-bold text-[#64748B] whitespace-nowrap mr-2">2.1 TB</span>
+</label>
+</div>
+<!-- Real-time Merge Analysis Preview Box -->
+<div class="bg-[#0B1220]/90 border border-[#1E293B] p-space-md rounded-xl flex items-start gap-space-sm mb-space-lg">
+<span class="material-symbols-outlined text-[20px] text-emerald-400 mt-0.5 flex-shrink-0">insights</span>
+<div class="flex flex-col gap-0.5 text-[#F1F5F9]">
+<span class="font-label-lg text-label-lg font-bold text-[#F1F5F9]">معاينة تحليل الدمج:</span>
+<p class="font-body-sm text-body-sm text-[#94A3B8] leading-relaxed">
+            سيتم دمج <strong class="text-[#F1F5F9] font-semibold">28,940 ملفاً</strong> (<span class="font-bold text-emerald-400">14.2 TB</span>) وتحديد حوالي <strong class="text-[#F1F5F9] font-semibold">3,652 عنصراً مكرراً</strong> مرشحاً للاستعادة الفورية.
+          </p>
+</div>
+</div>
+<!-- Action Button (Proceed) -->
+<div class="flex items-center gap-space-sm pt-space-xs pb-safe">
+<button class="flex-1 h-12 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-label-lg text-headline-sm font-bold flex items-center justify-center gap-2 active:scale-98 transition-all shadow-[0_0_16px_rgba(16,185,129,0.35)]">
+<span>المتابعة إلى الحساب الهدف</span>
+<span class="material-symbols-outlined text-[20px] scale-x-[-1]">arrow_forward</span>
+</button>
+</div>
+</div>
+</aside>
+</div>
+<script>
+  // Simple micro-interaction for merge sheet toggling
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const sheet = document.getElementById('mergeBottomSheet');
+      if (sheet) sheet.classList.add('hidden');
+    }
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-[#0B1220]/90 backdrop-blur-xl border-t border-[#1E293B] shadow-[0_-4px_20px_rgba(0,0,0,0.4)]" data-active-classes="text-[#10B981]"><div class="h-16 px-gutter flex items-center justify-around"><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#94A3B8] hover:text-[#F1F5F9] transition-colors" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">grid_view</span><span class="font-label-md text-label-md mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#94A3B8] hover:text-[#F1F5F9] transition-colors" data-path="files-explorer" href="#"><span class="material-symbols-outlined text-[22px]">folder</span><span class="font-label-md text-label-md mt-0.5">Files</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-emerald-400 font-semibold" data-path="accounts-vault" href="#"><span class="material-symbols-outlined text-[22px]">badge</span><span class="font-label-md text-label-md mt-0.5">Accounts</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#94A3B8] hover:text-[#F1F5F9] transition-colors" data-path="duplicate-finder" href="#"><span class="material-symbols-outlined text-[22px]">copy_all</span><span class="font-label-md text-label-md mt-0.5">Duplicates</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-[#94A3B8] hover:text-[#F1F5F9] transition-colors" data-path="storage-cleanup" href="#"><span class="material-symbols-outlined text-[22px]">cleaning_services</span><span class="font-label-md text-label-md mt-0.5">Clean</span></a></div></nav></body></html>
